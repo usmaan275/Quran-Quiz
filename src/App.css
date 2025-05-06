@@ -1,38 +1,1144 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  /* Remove overflow hidden here if you want the page to scroll as needed */
 }
 
 .App-header {
-  background-color: #282c34;
+  background: linear-gradient(175deg, #2e004f, #5c007a);
+  box-shadow: inset 0 0 10px #000000, inset 0 0 20px #000000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 40px 20px; /* Add padding to avoid overlap */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: calc(10px + 2vmin);
   color: white;
+  box-sizing: border-box; /* Ensures padding doesn’t add extra width */
 }
 
-.App-link {
-  color: #61dafb;
+.quba {
+  width: 12vw; /* Adjust the width as a percentage of the viewport width */
+  height: 12vw; /* Ensures the element remains a square */
+  margin: 20px auto;
+  display: block;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 0; /* Initially hidden */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Class to apply when the image is loaded */
+.quba.loaded {
+  opacity: 1;
+}
+
+/* Optional: Placeholder style */
+.quba-placeholder {
+  width: 12vw; /* Adjust the width as a percentage of the viewport width */
+  height: 12vw; /* Ensures the element remains a square */
+  margin: 20px auto;
+  background-color: #f0f0f0; /* Light gray placeholder */
+}
+
+
+/* Responsive Card Container */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 90%; /* Adjust to avoid overflow */
+  margin: 20px auto;
+  max-width: 100%;
+  padding: 0 10px; /* Padding on sides to keep cards centered */
+  box-sizing: border-box;
+}
+
+/* Card Styling */
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(175deg, #003d73, #3a5fcd); /* Gradient background */
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: calc(8px + 1.7vmin); /* Responsive font size */
+  height: 15vh;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: 3px solid rgba(255, 255, 255, 0.8); /* White outline with slight transparency */
+}
+
+.card:hover {
+  background-color: #4DB8E0;
+  transform: scale(1.02); /* Slight scale effect on hover */
+}
+
+/* Slightly smaller height for phones */
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
+    gap: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .card {
+    height: 10vh; /* Smaller card height on narrow screens */
+    font-size: calc(8px + 2vmin);
   }
+}
+
+/* Back button styling */
+.Back-button {
+  position: absolute;
+  top: 2vh;
+  left: 20px;
+  padding: 8px 12px;
+  background-color: #b22222;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.6); /* White outline with slight transparency */
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: clamp(15px, 1.5vw, 13px); /* Responsive font size */
+  cursor: pointer;
+  z-index: 100;
+}
+
+.Back-button:hover {
+  background-color: #ff4500; /* Hover effect */
+}
+
+/* Timer Display */
+.timer-display {
+  position: absolute;  /* Keeps the timer at the top of the page */
+  top: 20px;  /* 2% from the top of the viewport */
+  right: 20px;  /* 2% from the left of the viewport */
+  font-size: clamp(15px, 1.5vw, 13px);;  /* Responsive font size based on viewport width */
+  font-weight: bold;
+  color: #157218;  /* Green color */
+  background-color: rgba(255, 255, 255, 0.7);  /* Semi-transparent background */
+  padding: 1vh 2vw;  /* Padding based on viewport height and width */
+  border-radius: 10px;  /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  /* Subtle shadow effect */
+}
+
+/* Question Tracker */
+.question-tracker {
+  position: fixed;  /* Fixed positioning to keep it in place */
+  top: 2vh;  /* 5% from the bottom of the viewport */
+  font-size: 1.5vw;  /* Responsive font size based on viewport width */
+  font-weight: bold;
+  color: #0d5fa2;  /* Blue color */
+  background-color: rgba(255, 255, 255, 0.7);  /* Semi-transparent background */
+  padding: 1vh 2vw;  /* Padding based on viewport height and width */
+  border-radius: 10px;  /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  /* Subtle shadow effect */
+}
+
+/* Floating Instructions Button */
+.instructions-button {
+  position: fixed;
+  top: 2vh;
+  right: 2vw;
+  background: linear-gradient(175deg, #004c78, #4d90cc); /* Blue gradient */
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 25px;  color: white;
+  padding: 1.2vh 2vw;
+  cursor: pointer;
+  font-size: 1vw;
+  transition: 0.3s;
+  width: 11vw;
+  height: 5vh;
+}
+
+.instructions-button:hover {
+  background: #002f4b;
+}
+
+/* Dimmed Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+/* Scrollable Popup */
+.popup {
+  background: linear-gradient(175deg, #2e004f, #5c007a);
+  padding: 4vh 3vw;
+  border-radius: 12px;
+  width: 50vw;
+  max-height: 75vh;
+  overflow-y: auto;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.popup-close-button {
+  position: absolute;
+  top: 2vh;
+  right: 2vw;
+  background: red; /* Keep the red color */
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 25px;  color: white;
+  padding: 1.2vh 2vw;
+  cursor: pointer;
+  font-size: 1.0vw;
+  transition: 0.3s;
+  width: 11vw;
+  height: 5vh;
+}
+
+.popup-close-button:hover {
+  background: rgb(112, 4, 4); /* Darker red on hover */
+}
+
+
+/* Start button styling */
+.Start-button {
+  position: fixed;             /* Fix position to viewport bottom */
+  bottom: 2vh;
+  left: 50%;                   /* Center horizontally */
+  transform: translateX(-50%); /* Perfect centering */
+  padding: 15px 50px;
+  background: linear-gradient(175deg, #0b3d25, #1f6d43); /* Green gradient */
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.8); /* White outline with slight transparency */
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: clamp(14px, 1.5vw, 16px); /* Responsive font size */
+  cursor: pointer;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.Start-button:hover {
+  background: linear-gradient(175deg, #1f6d43, #2c905b); /* Green gradient */
+}
+
+.Start-button:disabled {
+  opacity: 0.4; /* Set to 40% opacity when disabled */
+  cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+}
+
+/* Optional responsive adjustments for small screens */
+@media (max-width: 800px) {
+  .Back-button,
+  .Start-button {
+    padding: 8px 15px;        /* Smaller padding on mobile */
+    font-size: clamp(12px, 4vw, 14px); /* Adjusted font size */
+  }
+}
+
+/* Container for the selection buttons */
+.selection-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Toggle buttons for selection */
+.toggle-button {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: clamp(8px, 1.5vw, 14px);
+  display: flex; /* Make the button a flex container */
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically */
+  background: linear-gradient(175deg, #004c78, #4d90cc); /* Blue gradient */
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 25px;
+  padding: 15px 15px; /* Increased padding for larger buttons */
+  flex: 1; /* Make buttons equal length */
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  min-width: 100px; /* Set a minimum width for buttons */
+}
+
+.toggle-button:hover {
+  transform: scale(1.05);
+}
+
+/* Container specifically for Select All and Deselect All buttons */
+.toggle-buttons-container {
+  display: flex; /* Arrange buttons side by side */
+  justify-content: center;
+  gap: 10px; /* Space between buttons */
+  margin-bottom: 20px;
+}
+
+/* Content area for selected option display */
+.selection-content {
+  flex: 1; /* Fill the space above the Start button */
+  max-height: 60vh; /* Limit height to 60% of the viewport height */
+  overflow-y: auto; /* Allow vertical scrolling */
+  width: 80vw;
+  margin-bottom: 2vh;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent background for effect */
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Stack items vertically */
+  align-items: stretch; /* Stretch items to fill the width */
+}
+
+.juzz-label {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Space between text and checkbox */
+  align-items: center; /* Center items vertically */
+  width: calc(100% - 20px); /* Reduce width to leave space for left/right margins */
+  height: 8vh; /* Fixed height for each card */
+  margin: 5px 0px; /* Left and right margins for spacing within container */
+  padding: 10px; /* Inner padding */
+  border: 1px solid rgba(255, 255, 255, 0.6); /* Card border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: rgba(255, 255, 255, 0.2); /* Card background color */
+  transition: background-color 0.3s; /* Smooth background change */
+}
+
+.juzz-label:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Change background on hover */
+}
+
+/* Checkbox style (optional) */
+.juzz-label input[type="checkbox"] {
+  margin-left: auto; /* Push the checkbox to the right */
+}
+
+/* Loading spinner styles */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  position: absolute; /* Change to absolute positioning */
+  top: 50%;           /* Vertically center within the container */
+  left: 50%;          /* Horizontally center within the container */
+  transform: translate(-50%, -50%); /* Adjust to ensure the spinner is centered exactly at that position */
+  border: 4px solid rgba(255, 255, 255, 0.5); /* Light gray color */
+  border-top: 4px solid #333; /* Darker gray color for top border */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@font-face {
+  font-family: "Scheherazade New";
+  src: url("./ScheherazadeNew.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Container for the Arabic Passage */
+.passage-container {
+  position: fixed;  /* Fix to the right side of the screen */
+  right: 0;         /* Align to the right side */
+  top: 10vh;        /* Add sufficient margin from the top */
+  bottom: 10vh;     /* Add sufficient margin from the bottom */
+  width: 50vw;      /* Take up half of the screen's width */
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+  color: white;     /* Text color */
+  padding: 20px;    /* Add padding for spacing */
+  box-sizing: border-box; /* Ensure padding doesn’t affect width */
+  overflow-y: auto; /* Allow vertical scrolling if text is long */
+  border-radius: 10px; /* Optional: rounded corners for a softer look */
+  z-index: 10;      /* Make sure it's above other content */
+  font-family: "Scheherazade New"; /* Use Arabic-friendly font */
+  direction: rtl;   /* Right-to-left direction for Arabic text */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content from the top */
+}
+
+.hangman-passage-container {
+  position: fixed;  /* Fix to the right side of the screen */
+  right: 0;         /* Align to the right side */
+  top: 10vh;        /* Add sufficient margin from the top */
+  bottom: 10vh;     /* Add sufficient margin from the bottom */
+  width: 50vw;      /* Take up half of the screen's width */
+  background: url('./desert.jpg') no-repeat center center;
+  background-size: cover;
+  color: white;     /* Text color */
+  padding: 20px;    /* Add padding for spacing */
+  box-sizing: border-box; /* Ensure padding doesn’t affect width */
+  overflow-y: auto; /* Allow vertical scrolling if text is long */
+  border-radius: 10px; /* Optional: rounded corners for a softer look */
+  z-index: 10;      /* Make sure it's above other content */
+  font-family: "Scheherazade New"; /* Use Arabic-friendly font */
+  direction: rtl;   /* Right-to-left direction for Arabic text */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content from the top */
+}
+
+.english-passage-container {
+  position: fixed;  /* Fix to the right side of the screen */
+  right: 0;         /* Align to the right side */
+  top: 10vh;        /* Add sufficient margin from the top */
+  bottom: 10vh;     /* Add sufficient margin from the bottom */
+  width: 50vw;      /* Take up half of the screen's width */
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+  color: white;     /* Text color */
+  padding: 20px;    /* Add padding for spacing */
+  box-sizing: border-box; /* Ensure padding doesn’t affect width */
+  overflow-y: auto; /* Allow vertical scrolling if text is long */
+  border-radius: 10px; /* Optional: rounded corners for a softer look */
+  z-index: 10;      /* Make sure it's above other content */
+  font-family: "Scheherazade New"; /* Use Arabic-friendly font */
+  direction: ltr;   /* Right-to-left direction for Arabic text */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content from the top */
+}
+
+/* For the passage text (inside the container) */
+.passage-text {
+  white-space: pre-line; /* Ensure the line breaks in the passage are respected */
+  font-size: 0.9em; /* Adjust font size */
+  line-height: 2.4; /* Adjust line height for readability */
+  overflow-wrap: break-word; /* Ensure words break nicely within the container */
+}
+
+.type-container {
+  display: flex;           /* Use Flexbox for centering */
+  bottom: 10vh;     /* Add sufficient margin from the bottom */
+  margin-top:10vh;
+  flex-direction: column;    /* Stack children vertically */
+  justify-content: center;   /* Center vertically */
+  align-items: center;       /* Center horizontally */
+  width: 50vw;               /* Take up the left half of the screen */
+  position: fixed;           /* Keep it fixed on the screen */
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent dark background */
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.search-container {
+  position: fixed;         /* Use fixed positioning to place it relative to the viewport */
+  size: fixed;
+  top: 10vh;               /* 10vh distance from the top of the screen */
+  width: 45%;              /* Make the container occupy the right half of the screen */
+  height: 48px;
+  padding: 10px;
+  padding-top: 12px;
+  font-family: "Scheherazade New";
+  direction: rtl;          /* Right to left for Arabic input */
+  z-index: 100;            /* Ensure it's on top of other content */
+}
+
+.english-search-container {
+  position: fixed;         /* Use fixed positioning to place it relative to the viewport */
+  size: fixed;
+  top: 10vh;               /* 10vh distance from the top of the screen */
+  width: 45%;              /* Make the container occupy the right half of the screen */
+  height: 48px;
+  padding: 10px;
+  padding-top: 12px;
+  font-family: "Scheherazade New";
+  direction: ltr;          
+  z-index: 100;            /* Ensure it's on top of other content */
+}
+
+button.clear-button {
+  position: absolute;
+  left: 20px; /* Position the button on the left side for RTL layout */
+  top: 55%; /* Vertically center the button */
+  transform: translateY(-50%); /* Adjust to make it truly centered */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.english-clear-button {
+  position: absolute;
+  right: 20px; /* Position the button on the left side for RTL layout */
+  top: 55%; /* Vertically center the button */
+  transform: translateY(-50%); /* Adjust to make it truly centered */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.clear-button svg {
+  width: 30px;
+  height: 30px;
+  fill: #888; /* Change the color of the close icon */
+}
+
+button.english-clear-button svg {
+  width: 30px;
+  height: 30px;
+  fill: #888; /* Change the color of the close icon */
+}
+
+button.clear-button:hover svg {
+  fill: #555; /* Darker color on hover */
+}
+
+button.english-clear-button:hover svg {
+  fill: #555; /* Darker color on hover */
+}
+
+.search-container input {
+  width: 100%;
+  height: 55px;
+  padding: 12px 20px;
+  padding-left: 44px; /* Add padding on the right for the clear button */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  font-family: "Scheherazade New";
+  border-radius: 8px;
+  outline: none;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+.english-search-container input {
+  width: 100%;
+  height: 55px;
+  padding: 12px 20px;
+  padding-left: 20px; /* Add padding on the right for the clear button */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  font-family: "Scheherazade New";
+  border-radius: 8px;
+  outline: none;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+.search-container input::placeholder {
+  font-family: "Scheherazade New"; /* Use Arabic-friendly font */
+}
+
+.english-search-container input::placeholder {
+  font-family: "Scheherazade New"; /* Use Arabic-friendly font */
+}
+
+.search-container input:focus {
+  border-color: #007bff;   /* Highlight border on focus */
+  font-family: "Scheherazade New";
+  background-color: #ffffff;
+}
+
+.english-search-container input:focus {
+  border-color: #007bff;   /* Highlight border on focus */
+  font-family: "Scheherazade New";
+  background-color: #ffffff;
+}
+
+/* Mic Button Styling */
+.mic-button {
+  position: absolute;
+  left: 26px; /* Position the button on the left side for RTL layout */
+  top: 38%; /* Vertically center the button */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1vw;
+}
+
+.mic-button .mic-icon {
+  width: 3vh;
+  height: 3vh;
+  fill: #888; /* Default gray */
+  transition: fill 0.3s ease-in-out;
+}
+
+/* Change color when active */
+.mic-button.active .mic-icon {
+  fill: #007bff; /* Blue when activated */
+}
+
+.mic-button .mic-icon:hover {
+  fill: #555; /* Darker color on hover */
+}
+
+.english-mic-button {
+  position: absolute;
+  right: 40px; /* Position the button on the left side for RTL layout */
+  top: 38%; /* Vertically center the button */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1vw;
+}
+
+.english-mic-button .mic-icon {
+  width: 3vh;
+  height: 3vh;
+  fill: #888; /* Default gray */
+  transition: fill 0.3s ease-in-out;
+}
+
+/* Change color when active */
+.english-mic-button.active .mic-icon {
+  fill: #007bff; /* Blue when activated */
+}
+
+.english-mic-button .mic-icon:hover {
+  fill: #555; /* Darker color on hover */
+}
+
+.suggestions-list {
+  list-style-type: none;
+  font-family: "Scheherazade New";
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  max-height: 30vh;
+  overflow-y: auto;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.suggestions-list li {
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  font-family: "Scheherazade New";
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.suggestions-list li:last-child {
+  border-bottom: none;
+  font-family: "Scheherazade New";
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+  font-family: "Scheherazade New";
+}
+
+.suggestions-list li p {
+  margin: 0;
+  font-family: "Scheherazade New";
+}
+
+.suggestions-list.hidden {
+  display: none;
+  font-family: "Scheherazade New";
+}
+
+.no-results {
+  text-align: center;
+  color: #999;
+  padding: 15px 0;
+  font-style: italic;
+  font-family: "Scheherazade New";
+}
+
+.visually-hidden {
+  position: absolute;
+  font-family: "Scheherazade New";
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+/* Container for all rows, positioned at the bottom of the screen */
+.keyboard-container {
+  display: flex;
+  direction: rtl;
+  font-family: "Scheherazade New";
+  flex-direction: column; /* Stack rows vertically */
+  position: fixed;
+  bottom: 10vh;
+  width: 50vw; /* Full width of the screen */
+  padding-top: 1.8vh;
+  padding-right: 0px;
+  background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent dark background */
+  border-radius: 8px;
+}
+
+.hangman-keyboard-container {
+  display: flex;
+  direction: rtl;
+  font-family: "Scheherazade New";
+  flex-direction: column; /* Stack rows vertically */
+  position: fixed;
+  bottom: 10vh;
+  width: 60vw; /* Full width of the screen */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Offset half the width */
+  padding-top: 1.8vh;
+  padding-right: 0px;
+  background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent dark background */
+  border-radius: 8px;
+}
+
+.english-keyboard-container {
+  display: flex;
+  direction: ltr;
+  font-family: "Scheherazade New";
+  flex-direction: column; /* Stack rows vertically */
+  position: fixed;
+  bottom: 10vh;
+  width: 50vw; /* Full width of the screen */
+  padding-top: 1.8vh;
+  padding-right: 0px;
+  background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent dark background */
+  border-radius: 8px;
+}
+
+/* Each row of keys */
+.keyboard-row {
+  display: flex;
+  justify-content: center; /* Center align keys within each row */
+  gap: 0.6vw; /* Space between keys in the row */
+  margin-bottom: 1.2vh; /* Space between rows */
+}
+
+/* Key Styling */
+.key {
+  display: flex;
+  align-items: center;
+  font-family: "Scheherazade New";
+  justify-content: center;
+  background: linear-gradient(175deg, #003d73, #3a5fcd); /* Gradient background */
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 1.2vh;
+  font-size: calc(10px + 1.5vmin); /* Responsive font size */
+  height: 6vh; /* Suitable height for keyboard key */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.6); /* White outline with slight transparency */
+  flex: 1; /* Let keys expand evenly within each row */
+  max-width: 3.5vw; /* Limit the maximum width of each key */
+}
+
+/* Hover effect for keys */
+.key:hover {
+  background-color: #4DB8E0;
+  transform: scale(0.90); /* Slight scale effect on hover */
+}
+
+.key:active {
+  transform: scale(0.85);  /* Slightly shrink the key when clicked */
+  background-color: #032e54;  /* A darker color on click */
+}
+
+
+/* Adjust styling for smaller screens */
+@media (max-width: 768px) {
+  .key {
+    height: 6vh; /* Slightly smaller key height for narrow screens */
+    font-size: calc(8px + 1.5vmin);
+  }
+
+  .keyboard-container {
+    overflow-x: auto;
+  }
+}
+
+/* Override styles for space key */
+.key.space {
+  max-width: 10vw;
+}
+
+/* Override styles for backspace key */
+.key.backspace {
+  background: linear-gradient(175deg, #b22222, #e53935); /* Red gradient for backspace */
+}
+
+.notification-container {
+  position: fixed;
+  top: 20px;
+  padding: 6px 20px;
+  width: 40vw;
+  height: 4vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border-radius: 5px;
+  font-size: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notification-text {
+  display: flex;           /* Enable Flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+}
+
+.close-button {
+  right: 20px;
+  border: none;
+  position: absolute;
+  border-radius: 5px;           /* Round corners */
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #e53935;  /* Darker red when hovered */
+}
+
+.close-button:focus {
+  outline: none;  /* Remove focus outline when clicked */
+}
+
+.close-button svg {
+  width: 20px;       /* Adjust size of the close icon */
+  height: 20px;
+  transition: fill 0.3s ease;
+}
+
+.close-button:hover svg {
+  fill: #fff;        /* White icon color on hover */
+}
+
+.next-button {
+  position: fixed;
+  bottom: 2vh;
+  left: 50%;                   /* Center horizontally */
+  transform: translateX(-50%); /* Perfect centering */
+  padding: 1.8vh 2.6vw;
+  background: linear-gradient(175deg, #0b3d25, #1f6d43); /* Green gradient */
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.9); /* White outline with slight transparency */
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: clamp(14px, 1.5vw, 16px); /* Responsive font size */
+  cursor: pointer;
+}
+
+.next-button:hover {
+  background: linear-gradient(175deg, #1f6d43, #2c905b); /* Green gradient */
+}
+
+.score-wrapper {
+  padding: 5vh 5vw;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2vw;
+  backdrop-filter: blur(10px);
+}
+
+.score-display {
+  font-size: 5vw; /* Responsive size */
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.2vw;
+  padding: 0vh 5vw;
+  border-radius: 2vw;
+  transition: transform 0.3s ease-in-out;
+  animation: popIn 0.5s ease-out;
+}
+
+/* Color transitions based on score */
+.low-score {
+  color: #ff4c4c;
+  text-shadow: 0 0 1vw rgba(255, 76, 76, 0.6);
+}
+
+.medium-score {
+  color: #ffa500;
+  text-shadow: 0 0 1vw rgba(255, 165, 0, 0.6);
+}
+
+.high-score {
+  color: #4caf50;
+  text-shadow: 0 0 1vw rgba(76, 175, 80, 0.6);
+}
+
+/* Pop-in animation */
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Hangman */
+.base {
+  position: absolute;
+  left: 50%;                   /* Center horizontally */
+  transform: translateX(-50%); /* Perfect centering */
+  bottom: 0;
+  width: 80%;
+  height: 2vh;
+  background: url('wood.jpg') no-repeat center center;
+  background-size: cover; /* Ensures the image covers the entire background */
+  opacity: 1;
+}
+
+.pole {
+  position: absolute;
+  bottom: 2vh;
+  left: 6vw;
+  width: 2vh;
+  height: 75vh;
+  background: url('wood.jpg') no-repeat center center;
+  background-size: cover; /* Ensures the image covers the entire background */
+  opacity: 1;
+}
+
+.beam {
+  position: absolute;
+  top: 2vh;
+  left: 6vw;
+  width: 19vw;
+  height: 2vh;
+  background: url('wood.jpg') no-repeat center center;
+  background-size: cover; /* Ensures the image covers the entire background */
+  opacity: 1;
+}
+
+.rope {
+  position: absolute;
+  top: 2vh;
+  left: 50%;
+  transform: translateX(-50%); /* Perfect centering */
+  width: 2vh;
+  height: 10vh;
+  background: url('wood.jpg') no-repeat center center;
+  background-size: cover; /* Ensures the image covers the entire background */
+  opacity: 1;
+}
+
+/* Body parts */
+.head {
+  position: absolute;
+  top: 11.4vh;
+  left: 50%;
+  transform: translateX(-50%); /* Perfect centering */
+  width: 12vh;
+  background-color: #f5deb3; /* Wheat skin tone */
+  height: 12vh;
+  border-radius: 50%;
+  border: 0.5vh solid black;
+  z-index: 10;
+}
+
+.body {
+  position: absolute;
+  top: 23vh;
+  left: 50%;
+  transform: translateX(-50%); /* Perfect centering */
+  width: 5vh;
+  border-left: 5vh solid transparent;   /* half of bottom width */
+  border-right: 5vh solid transparent;  /* same */
+  border-bottom: 27vh solid white;        /* thawb body */
+  border-radius: 1vh;
+  border-top: none;
+  opacity: 1;
+  z-index: 9;
+}
+
+.left-arm-upper {
+  position: absolute;
+  top: 23.7vh;
+  left: calc(50% - 6.5vh); /* adjust this distance from center */
+  width: 2vh;
+  height: 10vh;
+  background: white;
+  transform: rotate(50deg);
+  transform-origin: left;
+  border-radius: 0.4vh;
+  opacity: 1;
+}
+
+.left-arm-lower {
+  position: absolute;
+  top: 31.3vh;
+  left: calc(50% - 11.5vh); /* adjust this distance from center */
+  width: 2vh;
+  height: 8vh;
+  border-radius: 0.2vh;
+  background: white;
+  transform: rotate(20deg);
+  transform-origin: left;
+  opacity: 1;
+}
+
+.left-arm-hand {
+  position: absolute;
+  top: 38vh;
+  left: calc(50% - 13.3vh); /* adjust this distance from center */
+  width: 2vh;
+  height: 3vh;
+  border-radius: 1vh;
+  background: wheat;
+  transform: rotate(20deg);
+  transform-origin: left;
+  border: 0.3vh solid black;
+  opacity: 1;
+}
+
+.right-arm-upper {
+  position: absolute;
+  top: 23.7vh;
+  left: calc(50% + 4.5vh); /* adjust this distance from center */
+  width: 2vh;
+  height: 10vh;
+  background: white;
+  transform: rotate(-50deg);  /* Inverted rotation for the opposite direction */
+  transform-origin: right;
+  border-radius: 0.4vh;
+  opacity: 1;
+}
+
+.right-arm-lower {
+  position: absolute;
+  top: 31.3vh;
+  left: calc(50% + 9.5vh); /* adjust this distance from center */
+  width: 2vh;
+  height: 8vh;
+  border-radius: 0.2vh;
+  background: white;
+  transform: rotate(-20deg);  /* Inverted rotation */
+  transform-origin: right;
+  opacity: 1;
+}
+
+.right-arm-hand {
+  position: absolute;
+  top: 38vh;
+  left: calc(50% + 11.1vh); /* adjust this distance from center */
+  width: 2vh;
+  height: 3vh;
+  border-radius: 1vh;
+  background: wheat;
+  transform: rotate(-20deg);  /* Inverted rotation */
+  transform-origin: right;
+  border: 0.3vh solid black;
+  opacity: 1;
+}
+
+
+.left-shin {
+  position: absolute;
+  top: 49vh;
+  left: calc(50% - 4.7vh); /* adjust this distance from center */
+  width: 2vh;
+  height: 10vh;
+  background: wheat;
+  border: 0.3vh solid black;
+  opacity: 1;
+}
+
+.left-shoe {
+  position: absolute;
+  top: 57vh;
+  left: calc(50% - 6vh); /* adjust this distance from center */
+  width: 5vh;
+  height: 3vh;
+  border-radius: 5vh;
+  background: rgb(92, 61, 20);
+  opacity: 1;
+  z-index: 10;
+}
+
+.right-shin {
+  position: absolute;
+  top: 49vh;
+  left: calc(50% + 2.5vh); /* adjust this distance from center */
+  width: 2vh;
+  height: 10vh;
+  background: wheat;
+  border: 0.3vh solid black;
+  opacity: 1;
+}
+
+.right-shoe {
+  position: absolute;
+  top: 57vh;
+  left: calc(50% + 1.3vh); /* adjust this distance from center */
+  width: 5vh;
+  height: 3vh;
+  border-radius: 5vh;
+  background: rgb(92, 61, 20);
+  opacity: 1;
+  z-index: 10;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hangman-part {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.score-table-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 0rem;
+  margin-bottom: 3rem;
+}
+
+.score-table {
+  font-size: 2rem; /* text-sm */
+  border-collapse: collapse;
+}
+
+.score-table td {
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+
+.score-table .label {
+  font-weight: bold;
+  color: #777;
+}
+
+.score-table .value {
+  color: #fff;
 }
