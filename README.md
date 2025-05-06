@@ -28,7 +28,7 @@ This is a gamified web application built to aid and test Quran memorisation (Hif
 
 ## 💡 Technical Highlights
 
-- **Frontend**: React, Tailwind CSS
+- **Frontend**: React.js
 - **Search Logic**: Local JSON (`quran.json`) + custom phonetics + diacritic-insensitive search
 - **Passage Generation**: Boundary-tested random selection with Ayah alignment
 - **Voice Recognition**: Browser Web Speech API
@@ -60,6 +60,7 @@ git clone https://github.com/your-username/quran-hifdh-game.git
 cd quran-hifdh-game
 npm install
 npm start
+```
 
 
 # Getting Started with Create React App
