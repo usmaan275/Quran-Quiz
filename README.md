@@ -1,3 +1,67 @@
+# 🕋 Quran Memorisation Game – Hifdh Assistant
+
+This is a gamified web application built to aid and test Quran memorisation (Hifdh) through interactive game modes. It was developed as part of a university software engineering project, combining real-world feedback, modern web technologies, and classical HCI principles. It includes Arabic and English memorisation modes, dynamic passage generation, voice recognition, phonetic search, and a themed Hangman game for Surah names.
+
+---
+
+## 🌟 Features
+
+### 🔠 **Arabic Hifdh Mode**
+- Randomised passage generation from selected Juzz.
+- Adaptive passage length with fair Ayah selection.
+- Phonetic Arabic search bar (e.g., typing `b` yields "ب").
+- Speech recognition integration.
+- Real-time input validation and feedback (green/red colour feedback).
+- Results screen with scoring and replay options.
+
+### 📖 **English Hifdh Mode**
+- Full Ayah display (no partial blanking).
+- Similar passage logic but adapted for translated text difficulty.
+
+### 🕹️ **Quranic Hangman**
+- 114 Surah names included.
+- Arabic display with filtered definitive particles.
+- Custom character filtering logic for fair gameplay.
+- Desert-themed hangman with Islamic attire.
+
+---
+
+## 💡 Technical Highlights
+
+- **Frontend**: React, Tailwind CSS
+- **Search Logic**: Local JSON (`quran.json`) + custom phonetics + diacritic-insensitive search
+- **Passage Generation**: Boundary-tested random selection with Ayah alignment
+- **Voice Recognition**: Browser Web Speech API
+- **Gameflow Optimisation**: Loading states, transition control, and passage integrity
+- **Testing**:
+  - Boundary testing (Juzz size, Ayah overflow)
+  - Gameflow validation (next/prev screens, scoring consistency)
+  - Input scenarios (incorrect guesses, speech input, single Juzz selection)
+
+---
+
+## 🧪 User Testing
+
+Passage lengths and difficulty were refined via iterative testing and consultations with Quran memorizers. The interface was evaluated for natural flow, interaction timing, and clarity, especially across different devices.
+
+---
+
+## 🛠️ Setup
+
+### 📁 Requirements
+
+- Node.js ≥ 16
+- NPM or Yarn
+
+### 🔧 Installation
+
+```bash
+git clone https://github.com/your-username/quran-hifdh-game.git
+cd quran-hifdh-game
+npm install
+npm start
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
