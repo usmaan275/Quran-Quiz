@@ -744,7 +744,7 @@ const handleSearch = (input) => {
 
   // Perform the search in the local JSON
   const matches = quranData.filter(item =>
-    normalizeArabicInput(item.text).includes(normalizeArabicInput(input))
+    normaliseArabicInput(item.text).includes(normaliseArabicInput(input))
   ).slice(0, 50); // Limit to first 50 matches
 
   // Clear the list
@@ -842,9 +842,9 @@ const handleSearch = (input) => {
   //   return output;
   // };
 
-  const normalizeArabicInput = (input) => {
+  const normaliseArabicInput = (input) => {
     let output = cleanText(input);
-    return output.replace(/[أإآ]/g, 'ا').replace(/ة/g, 'ه');
+    return output.replace(/[أإآ]/g, 'ا').replace(/ه/g, 'ة').replace(/ت/g, 'ة');
   };
 
   // Speech recognition setup
@@ -864,7 +864,7 @@ const handleSearch = (input) => {
       const transcript = event.results[0][0].transcript;
       setSearchText((prev) => {
         const updatedText = prev === '' ? prev + transcript : prev + " " + transcript;
-        handleSearch(normalizeArabicInput(updatedText));
+        handleSearch(updatedText);
         return updatedText;
       });
     };

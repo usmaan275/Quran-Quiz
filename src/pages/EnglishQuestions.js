@@ -608,7 +608,7 @@ function EnglishQuestions() {
   
     // Perform the search in the local JSON
     const matches = quranData.filter(item =>
-      normalizeArabicInput(item.text).includes(normalizeArabicInput(input)) || (item.translation.toLowerCase()).includes(input.toLowerCase())
+      normaliseArabicInput(item.text).includes(normaliseArabicInput(input)) || (item.translation.toLowerCase()).includes(input.toLowerCase())
     ).slice(0, 50); // Limit to first 50 matches
   
     // Clear the list
@@ -670,9 +670,9 @@ function EnglishQuestions() {
     handleSearch(searchInput.value);
   };
 
-  const normalizeArabicInput = (input) => {
+  const normaliseArabicInput = (input) => {
     let output = cleanText(input);
-    return output.replace(/[أإآ]/g, 'ا').replace(/ة/g, 'ه');
+    return output.replace(/[أإآ]/g, 'ا').replace(/ه/g, 'ة').replace(/ت/g, 'ة');
   };
 
   // Speech recognition setup

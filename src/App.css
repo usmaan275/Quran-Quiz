@@ -146,6 +146,7 @@
   padding: 1.2vh 2vw;
   cursor: pointer;
   font-size: 1vw;
+  overflow-y: hidden;
   transition: 0.3s;
   width: 11vw;
   height: 5vh;
@@ -371,6 +372,7 @@
   width: 50vw;      /* Take up half of the screen's width */
   background: url('./desert.jpg') no-repeat center center;
   background-size: cover;
+  animation: fadeIn 0.8s ease-in forwards;
   color: white;     /* Text color */
   padding: 20px;    /* Add padding for spacing */
   box-sizing: border-box; /* Ensure padding doesn’t affect width */
