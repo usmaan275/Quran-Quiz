@@ -146,7 +146,7 @@
   padding: 1.2vh 2vw;
   cursor: pointer;
   font-size: 1vw;
-  overflow-y: hidden;
+  overflow-x: hidden;
   transition: 0.3s;
   width: 11vw;
   height: 5vh;
