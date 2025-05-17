@@ -883,7 +883,6 @@ button.english-clear-button:hover svg {
 
 .score-wrapper {
   padding: calc(var(--vh) * 5) 5vw;
-  height: calc(var(--vh) * 80);
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2vw;
   backdrop-filter: blur(10px);
@@ -1303,14 +1302,14 @@ button.english-clear-button:hover svg {
   .search-container input {
     font-size: 16px;
     height: calc(var(--vh) * 7);
-    padding-left: 15vw;
+    padding-left: 18vw;
   }
 
   .english-search-container input {
     font-size: 16px;
     height: calc(var(--vh) * 7);
-    padding-right: 15vw;
-    padding-left: 15vw;
+    padding-right: 18vw;
+    padding-left: 18vw;
   }
 
   .keyboard-container {
