@@ -8,8 +8,10 @@ import Hangman from './pages/Hangman';
 import ArabicQuestions from './pages/ArabicQuestions';
 import ArabicResults from './pages/ArabicResults';
 import EnglishQuestions from './pages/EnglishQuestions';
+import { useFix100vh } from './hooks/Viewport';
 
 function App() {
+  useFix100vh();
   return (
     <div className="App">
       <BrowserRouter>

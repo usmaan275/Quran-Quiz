@@ -6,13 +6,13 @@
 .App-header {
   transition: 0.3s;
   background: linear-gradient(175deg, #2e004f, #5c007a);
-  box-shadow: inset 0 0 2vh #000000, inset 0 0 2vh #000000;
-  min-height: 100vh;
+  box-shadow: inset 0 0 calc(var(--vh) * 2) #000000, inset 0 0 calc(var(--vh) * 2) #000000;
+  min-height: calc(var(--vh) * 100);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4vh 2vh; /* Add padding to avoid overlap */
+  padding: calc(var(--vh) * 4) calc(var(--vh) * 2); /* Add padding to avoid overlap */
   font-size: 3vmin;
   color: white;
   box-sizing: border-box; /* Ensures padding doesn’t add extra width */
@@ -21,7 +21,7 @@
 .quba {
   width: 12vmax; /* Adjust the width as a percentage of the viewport width */
   height: 12vmax; /* Ensures the element remains a square */
-  margin: 2vh auto;
+  margin: calc(var(--vh) * 2) auto;
   display: block;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   opacity: 0; /* Initially hidden */
@@ -36,7 +36,7 @@
 .quba-placeholder {
   width: 12vmax; /* Adjust the width as a percentage of the viewport width */
   height: 12vmax; /* Ensures the element remains a square */
-  margin: 2vh auto;
+  margin: calc(var(--vh) * 2) auto;
   background-color: #f0f0f0; /* Light gray placeholder */
 }
 
@@ -45,11 +45,11 @@
 .card-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2vh;
+  gap: calc(var(--vh) * 2);
   width: 90%; /* Adjust to avoid overflow */
-  margin: 2vh auto;
+  margin: calc(var(--vh) * 2) auto;
   max-width: 100%;
-  padding: 0 1vh; /* Padding on sides to keep cards centered */
+  padding: 0 calc(var(--vh) * 1); /* Padding on sides to keep cards centered */
   box-sizing: border-box;
 }
 
@@ -62,11 +62,11 @@
   color: white;
   text-decoration: none;
   border-radius: 1vmax;
-  padding: 2vh;
+  padding: calc(var(--vh) * 2);
   font-size: 3vmin; /* Responsive font size */
-  height: 15vh;
+  height: calc(var(--vh) * 15);
   transition: background-color 0.3s ease, transform 0.3s ease;
-  border: 0.4vh solid rgba(255, 255, 255, 0.8); /* White outline with slight transparency */
+  border: calc(var(--vh) * 0.4) solid rgba(255, 255, 255, 0.8); /* White outline with slight transparency */
 }
 
 .card:hover {
@@ -77,7 +77,7 @@
 /* Back button styling */
 .Back-button {
   position: absolute;
-  top: 2vh;
+  top: calc(var(--vh) * 2);
   left: 1vmax;
   padding: 1vmin 1.5vmin;
   background-color: #b22222;
@@ -96,7 +96,7 @@
 /* Timer Display */
 .timer-display {
   position: absolute;  /* Keeps the timer at the top of the page */
-  top: 2vh;  /* 2% from the top of the viewport */
+  top: calc(var(--vh) * 2);  /* 2% from the top of the viewport */
   right: 1vmax;  /* 2% from the left of the viewport */
   font-size: 1.2vmax;  /* Responsive font size based on viewport width */
   font-weight: bold;
@@ -110,7 +110,7 @@
 /* Question Tracker */
 .question-tracker {
   position: fixed;  /* Fixed positioning to keep it in place */
-  top: 2vh;  /* 5% from the bottom of the viewport */
+  top: calc(var(--vh) * 2);  /* 5% from the bottom of the viewport */
   font-size: 1.5vmax;  /* Responsive font size based on viewport width */
   font-weight: bold;
   color: #0d5fa2;  /* Blue color */
@@ -123,7 +123,7 @@
 /* Floating Instructions Button */
 .instructions-button {
   position: fixed;
-  top: 2vh;
+  top: calc(var(--vh) * 2);
   right: 1vmax;
   padding: 1vmin 1.5vmin;
   width: 9vmax;
@@ -147,7 +147,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh) * 100);
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
@@ -158,10 +158,10 @@
 /* Scrollable Popup */
 .popup {
   background: linear-gradient(175deg, #2e004f, #5c007a);
-  padding: 4vh 3vw;
+  padding: calc(var(--vh) * 4) 3vw;
   border-radius: 1vmax;
   width: 50vw;
-  max-height: 75vh;
+  max-height: calc(var(--vh) * 75);
   overflow-y: auto;
   text-align: center;
   box-shadow: 0 1vmin 1vmin rgba(0, 0, 0, 0.2);
@@ -170,7 +170,7 @@
 
 .popup-close-button {
   position: absolute;
-  top: 2vh;
+  top: calc(var(--vh) * 2);
   right: 1vmax;
   background: red; /* Keep the red color */
   color: white;
@@ -190,7 +190,7 @@
 /* Start button styling */
 .Start-button {
   position: fixed;             /* Fix position to viewport bottom */
-  bottom: 2vh;
+  bottom: calc(var(--vh) * 2);
   left: 50%;                   /* Center horizontally */
   transform: translateX(-50%); /* Perfect centering */
   padding: 1vmax 3vmax;
@@ -256,7 +256,7 @@
 /* Content area for selected option display */
 .selection-content {
   flex: 1; /* Fill the space above the Start button */
-  max-height: 60vh; /* Limit height to 60% of the viewport height */
+  max-height: calc(var(--vh) * 60); /* Limit height to 60% of the viewport height */
   overflow-y: auto; /* Allow vertical scrolling */
   width: 80vw;
   margin-top: 6vmin;
@@ -271,7 +271,7 @@
 
 .select-message {
   position: fixed;  /* Fixed positioning to keep it in place */
-  top: 5vh;  /* 5% from the bottom of the viewport */
+  top: calc(var(--vh) * 5);  /* 5% from the bottom of the viewport */
   font-size: 1.5vmax;  /* Responsive font size based on viewport width */
   font-weight: bold;
   color: #0d5fa2;  /* Blue color */
@@ -335,8 +335,8 @@
 .passage-container {
   position: fixed;  /* Fix to the right side of the screen */
   right: 0;         /* Align to the right side */
-  top: 10vh;        /* Add sufficient margin from the top */
-  bottom: 10vh;     /* Add sufficient margin from the bottom */
+  top: calc(var(--vh) * 10);        /* Add sufficient margin from the top */
+  bottom: calc(var(--vh) * 10);     /* Add sufficient margin from the bottom */
   width: 50vw;      /* Take up half of the screen's width */
   background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
   color: white;     /* Text color */
@@ -355,8 +355,8 @@
 .hangman-passage-container {
   position: fixed;  /* Fix to the right side of the screen */
   right: 0;         /* Align to the right side */
-  top: 10vh;        /* Add sufficient margin from the top */
-  bottom: 10vh;     /* Add sufficient margin from the bottom */
+  top: calc(var(--vh) * 10);        /* Add sufficient margin from the top */
+  bottom: calc(var(--vh) * 10);     /* Add sufficient margin from the bottom */
   width: 50vw;      /* Take up half of the screen's width */
   background: url('./desert.jpg') no-repeat center center;
   background-size: cover;
@@ -377,8 +377,8 @@
 .english-passage-container {
   position: fixed;  /* Fix to the right side of the screen */
   right: 0;         /* Align to the right side */
-  top: 10vh;        /* Add sufficient margin from the top */
-  bottom: 10vh;     /* Add sufficient margin from the bottom */
+  top: calc(var(--vh) * 10);        /* Add sufficient margin from the top */
+  bottom: calc(var(--vh) * 10);     /* Add sufficient margin from the bottom */
   width: 50vw;      /* Take up half of the screen's width */
   background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
   color: white;     /* Text color */
@@ -405,8 +405,8 @@
 
 .type-container {
   display: flex;           /* Use Flexbox for centering */
-  bottom: 10vh;     /* Add sufficient margin from the bottom */
-  margin-top:10vh;
+  bottom: calc(var(--vh) * 10);     /* Add sufficient margin from the bottom */
+  margin-top:calc(var(--vh) * 10);
   flex-direction: column;    /* Stack children vertically */
   justify-content: center;   /* Center vertically */
   align-items: center;       /* Center horizontally */
@@ -422,11 +422,11 @@
 .search-container {
   position: fixed;         /* Use fixed positioning to place it relative to the viewport */
   size: fixed;
-  top: 10vh;               /* 10vh distance from the top of the screen */
+  top: calc(var(--vh) * 10);               /* calc(var(--vh) * 10) distance from the top of the screen */
   width: 45%;              /* Make the container occupy the right half of the screen */
-  height: 6.5vh;
-  padding: 1.7vh;
-  padding-top: 1.7vh;
+  height: calc(var(--vh) * 6.5);
+  padding: calc(var(--vh) * 1.7);
+  padding-top: calc(var(--vh) * 1.7);
   font-family: "Scheherazade New";
   direction: rtl;          /* Right to left for Arabic input */
   z-index: 100;            /* Ensure it's on top of other content */
@@ -435,11 +435,11 @@
 .english-search-container {
   position: fixed;         /* Use fixed positioning to place it relative to the viewport */
   size: fixed;
-  top: 11vh;               /* 10vh distance from the top of the screen */
+  top: calc(var(--vh) * 11);               /* calc(var(--vh) * 10) distance from the top of the screen */
   width: 45%;              /* Make the container occupy the right half of the screen */
-  height: 6.5vh;
-  padding: 1.5vh;
-  padding-top: 1.2vh;
+  height: calc(var(--vh) * 6.5);
+  padding: calc(var(--vh) * 1.5);
+  padding-top: calc(var(--vh) * 1.2);
   font-family: "Scheherazade New";
   direction: ltr;          
   z-index: 100;            /* Ensure it's on top of other content */
@@ -448,9 +448,9 @@
 button.clear-button {
   position: absolute;
   left: 1.5vw; /* Position the button on the left side for RTL layout */
-  top: 5.8vh; /* Vertically center the button */
-  width: 4vh;
-  height: 4vh;
+  top: calc(var(--vh) * 5.8); /* Vertically center the button */
+  width: calc(var(--vh) * 4);
+  height: calc(var(--vh) * 4);
   transform: translateY(-50%); /* Adjust to make it truly centered */
   background: none;
   border: none;
@@ -464,9 +464,9 @@ button.clear-button {
 button.english-clear-button {
   position: absolute;
   right: 1.5vw; /* Position the button on the left side for RTL layout */
-  top: 5vh; /* Vertically center the button */
-  width: 4vh;
-  height: 4vh;
+  top: calc(var(--vh) * 5); /* Vertically center the button */
+  width: calc(var(--vh) * 4);
+  height: calc(var(--vh) * 4);
   transform: translateY(-50%); /* Adjust to make it truly centered */
   background: none;
   border: none;
@@ -495,7 +495,7 @@ button.english-clear-button:hover svg {
 
 .search-container input {
   width: 100%;
-  height: 8vh;
+  height: calc(var(--vh) * 8);
   padding-right: 1vw;
   padding-left: 5vw;
   font-size: 0.7em;
@@ -509,7 +509,7 @@ button.english-clear-button:hover svg {
 
 .english-search-container input {
   width: 100%;
-  height: 8vh;
+  height: calc(var(--vh) * 8);
   padding-left: 5vw;
   padding-right: 5vw;
   font-size: 0.7em;
@@ -546,9 +546,9 @@ button.english-clear-button:hover svg {
 .mic-button {
   position: absolute;
   left: 2.2vw; /* Position the button on the left side for RTL layout */
-  top: 3.2vh; /* Vertically center the button */
-  width: 5.5vh;
-  height: 5.5vh;
+  top: calc(var(--vh) * 3.2); /* Vertically center the button */
+  width: calc(var(--vh) * 5.5);
+  height: calc(var(--vh) * 5.5);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -576,9 +576,9 @@ button.english-clear-button:hover svg {
 .english-mic-button {
   position: absolute;
   right: 3.2vw; /* Position the button on the left side for RTL layout */
-  top: 2.2vh; /* Vertically center the button */
-  width: 5.5vh;
-  height: 5.5vh;
+  top: calc(var(--vh) * 2.2); /* Vertically center the button */
+  width: calc(var(--vh) * 5.5);
+  height: calc(var(--vh) * 5.5);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -607,11 +607,11 @@ button.english-clear-button:hover svg {
   list-style-type: none;
   font-family: "Scheherazade New";
   margin: 0;
-  margin-top: 0.3vh;
+  margin-top: calc(var(--vh) * 0.3);
   padding: 0;
   position: absolute;
   width: 100%;
-  max-height: 30vh;
+  max-height: calc(var(--vh) * 30);
   overflow-y: auto;
   top: 100%;
   left: 0;
@@ -627,7 +627,7 @@ button.english-clear-button:hover svg {
 }
 
 .suggestions-list li {
-  padding: 1.4vh;
+  padding: calc(var(--vh) * 1.4);
   border-bottom: 0.3vmin solid #f0f0f0;
   font-family: "Scheherazade New";
   cursor: pointer;
@@ -660,7 +660,7 @@ button.english-clear-button:hover svg {
 .no-results {
   text-align: center;
   color: #999;
-  padding: 1.4vh 0;
+  padding: calc(var(--vh) * 1.4) 0;
   font-style: italic;
   font-family: "Scheherazade New";
 }
@@ -684,9 +684,9 @@ button.english-clear-button:hover svg {
   font-family: "Scheherazade New";
   flex-direction: column; /* Stack rows vertically */
   position: fixed;
-  bottom: 10vh;
+  bottom: calc(var(--vh) * 10);
   width: 50vw; /* Full width of the screen */
-  padding-top: 1.8vh;
+  padding-top: calc(var(--vh) * 1.8);
   padding-right: 0px;
   background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent dark background */
   border-radius: 1vmax;
@@ -702,19 +702,19 @@ button.english-clear-button:hover svg {
   font-family: "Scheherazade New";
   flex-direction: column; /* Stack rows vertically */
   position: fixed;
-  bottom: 10vh;
+  bottom: calc(var(--vh) * 10);
   width: 50vw; /* Full width of the screen */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Offset half the width */
-  padding-top: 1.8vh;
+  padding-top: calc(var(--vh) * 1.8);
   padding-right: 0px;
   background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent dark background */
   border-radius: 1vmax;
 }
 
 .toggle-keyboard-btn {
-  margin: 1vh;
-  padding: 1vh 2vh;
+  margin: calc(var(--vh) * 1);
+  padding: calc(var(--vh) * 1) calc(var(--vh) * 2);
   font-size: 0.5em;
   background-color: #333;
   color: white;
@@ -723,7 +723,7 @@ button.english-clear-button:hover svg {
   cursor: pointer;
   position: fixed;
   left: 1vw;
-  bottom: 5vh;
+  bottom: calc(var(--vh) * 5);
 }
 
 .english-keyboard-container {
@@ -732,9 +732,9 @@ button.english-clear-button:hover svg {
   font-family: "Scheherazade New";
   flex-direction: column; /* Stack rows vertically */
   position: fixed;
-  bottom: 10vh;
+  bottom: calc(var(--vh) * 10);
   width: 50vw; /* Full width of the screen */
-  padding-top: 1.8vh;
+  padding-top: calc(var(--vh) * 1.8);
   padding-right: 0px;
   background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent dark background */
   border-radius: 1vmax;
@@ -749,7 +749,7 @@ button.english-clear-button:hover svg {
   display: flex;
   justify-content: center; /* Center align keys within each row */
   gap: 0.6vw; /* Space between keys in the row */
-  margin-bottom: 1.2vh; /* Space between rows */
+  margin-bottom: calc(var(--vh) * 1.2); /* Space between rows */
 }
 
 /* Key Styling */
@@ -763,9 +763,9 @@ button.english-clear-button:hover svg {
   color: white;
   text-decoration: none;
   border-radius: 0.8vmax;
-  padding: 1.2vh;
+  padding: calc(var(--vh) * 1.2);
   font-size: 0.9em; /* Responsive font size */
-  height: 6vh; /* Suitable height for keyboard key */
+  height: calc(var(--vh) * 6); /* Suitable height for keyboard key */
   transition: background-color 0.3s ease, transform 0.3s ease;
   border: 0.15vmax solid rgba(255, 255, 255, 0.6); /* White outline with slight transparency */
   flex: 1; /* Let keys expand evenly within each row */
@@ -779,7 +779,7 @@ button.english-clear-button:hover svg {
 .key::after {
   content: attr(data-translit);
   position: absolute;
-  top: 0vh;
+  top: calc(var(--vh) * 0);
   left: 0.42vw;
   font-size: 0.5em;
   direction: ltr;
@@ -810,10 +810,10 @@ button.english-clear-button:hover svg {
 
 .notification-container {
   position: fixed;
-  top: 3vh;
-  padding: 1vh 2vw;
+  top: calc(var(--vh) * 3);
+  padding: calc(var(--vh) * 1) 2vw;
   width: 50vw;
-  height: 3vh;
+  height: calc(var(--vh) * 3);
   background-color: rgba(0, 0, 0, 0.7);
   color: #fff;
   border-radius: 0.7vmax;
@@ -864,10 +864,10 @@ button.english-clear-button:hover svg {
 
 .next-button {
   position: fixed;
-  bottom: 2vh;
+  bottom: calc(var(--vh) * 2);
   left: 50%;                   /* Center horizontally */
   transform: translateX(-50%); /* Perfect centering */
-  padding: 1.8vh 2.6vw;
+  padding: calc(var(--vh) * 1.8) 2.6vw;
   background: linear-gradient(175deg, #0b3d25, #1f6d43); /* Green gradient */
   color: white;
   border: 0.2vmax solid rgba(255, 255, 255, 0.9); /* White outline with slight transparency */
@@ -882,8 +882,8 @@ button.english-clear-button:hover svg {
 }
 
 .score-wrapper {
-  padding: 5vh 5vw;
-  height: 80vh;
+  padding: calc(var(--vh) * 5) 5vw;
+  height: calc(var(--vh) * 80);
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2vw;
   backdrop-filter: blur(10px);
@@ -894,7 +894,7 @@ button.english-clear-button:hover svg {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.2vw;
-  padding: 0vh 5vw;
+  padding: calc(var(--vh) * 0) 5vw;
   border-radius: 2vw;
   transition: transform 0.3s ease-in-out;
   animation: popIn 0.5s ease-out;
@@ -945,7 +945,7 @@ button.english-clear-button:hover svg {
   transform: translateX(-50%); /* Perfect centering */
   bottom: 0;
   width: 80%;
-  height: 2vh;
+  height: calc(var(--vh) * 2);
   background: url('wood.jpg') no-repeat center center;
   background-size: cover; /* Ensures the image covers the entire background */
   opacity: 1;
@@ -953,10 +953,10 @@ button.english-clear-button:hover svg {
 
 .pole {
   position: absolute;
-  bottom: 2vh;
+  bottom: calc(var(--vh) * 2);
   left: 6vw;
-  width: 2vh;
-  height: 75vh;
+  width: calc(var(--vh) * 2);
+  height: calc(var(--vh) * 75);
   background: url('wood.jpg') no-repeat center center;
   background-size: cover; /* Ensures the image covers the entire background */
   opacity: 1;
@@ -964,10 +964,10 @@ button.english-clear-button:hover svg {
 
 .beam {
   position: absolute;
-  top: 2vh;
+  top: calc(var(--vh) * 2);
   left: 6vw;
   width: 19vw;
-  height: 2vh;
+  height: calc(var(--vh) * 2);
   background: url('wood.jpg') no-repeat center center;
   background-size: cover; /* Ensures the image covers the entire background */
   opacity: 1;
@@ -975,11 +975,11 @@ button.english-clear-button:hover svg {
 
 .rope {
   position: absolute;
-  top: 2vh;
+  top: calc(var(--vh) * 2);
   left: 50%;
   transform: translateX(-50%); /* Perfect centering */
-  width: 2vh;
-  height: 10vh;
+  width: calc(var(--vh) * 2);
+  height: calc(var(--vh) * 10);
   background: url('wood.jpg') no-repeat center center;
   background-size: cover; /* Ensures the image covers the entire background */
   opacity: 1;
@@ -988,27 +988,27 @@ button.english-clear-button:hover svg {
 /* Body parts */
 .head {
   position: absolute;
-  top: 11.4vh;
+  top: calc(var(--vh) * 11.4);
   left: 50%;
   transform: translateX(-50%); /* Perfect centering */
-  width: 12vh;
+  width: calc(var(--vh) * 12);
   background-color: #f5deb3; /* Wheat skin tone */
-  height: 12vh;
+  height: calc(var(--vh) * 12);
   border-radius: 50%;
-  border: 0.5vh solid black;
+  border: calc(var(--vh) * 0.5) solid black;
   z-index: 10;
 }
 
 .body {
   position: absolute;
-  top: 23vh;
+  top: calc(var(--vh) * 23);
   left: 50%;
   transform: translateX(-50%); /* Perfect centering */
-  width: 5vh;
-  border-left: 5vh solid transparent;   /* half of bottom width */
-  border-right: 5vh solid transparent;  /* same */
-  border-bottom: 27vh solid white;        /* thawb body */
-  border-radius: 1vh;
+  width: calc(var(--vh) * 5);
+  border-left: calc(var(--vh) * 5) solid transparent;   /* half of bottom width */
+  border-right: calc(var(--vh) * 5) solid transparent;  /* same */
+  border-bottom: calc(var(--vh) * 27) solid white;        /* thawb body */
+  border-radius: calc(var(--vh) * 1);
   border-top: none;
   opacity: 1;
   z-index: 9;
@@ -1016,24 +1016,24 @@ button.english-clear-button:hover svg {
 
 .left-arm-upper {
   position: absolute;
-  top: 23.7vh;
-  left: calc(50% - 6.5vh); /* adjust this distance from center */
-  width: 2vh;
-  height: 10vh;
+  top: calc(var(--vh) * 23.7);
+  left: calc(50% - calc(var(--vh) * 6.5)); /* adjust this distance from center */
+  width: calc(var(--vh) * 2);
+  height: calc(var(--vh) * 10);
   background: white;
   transform: rotate(50deg);
   transform-origin: left;
-  border-radius: 0.4vh;
+  border-radius: calc(var(--vh) * 0.4);
   opacity: 1;
 }
 
 .left-arm-lower {
   position: absolute;
-  top: 31.3vh;
-  left: calc(50% - 11.5vh); /* adjust this distance from center */
-  width: 2vh;
-  height: 8vh;
-  border-radius: 0.2vh;
+  top: calc(var(--vh) * 31.3);
+  left: calc(50% - calc(var(--vh) * 11.34)); /* adjust this distance from center */
+  width: calc(var(--vh) * 2);
+  height: calc(var(--vh) * 8);
+  border-radius: calc(var(--vh) * 0.2);
   background: white;
   transform: rotate(20deg);
   transform-origin: left;
@@ -1042,38 +1042,38 @@ button.english-clear-button:hover svg {
 
 .left-arm-hand {
   position: absolute;
-  top: 38vh;
-  left: calc(50% - 13.3vh); /* adjust this distance from center */
-  width: 2vh;
-  height: 3vh;
-  border-radius: 1vh;
+  top: calc(var(--vh) * 38);
+  left: calc(50% - calc(var(--vh) * 13)); /* adjust this distance from center */
+  width: calc(var(--vh) * 2);
+  height: calc(var(--vh) * 3);
+  border-radius: calc(var(--vh) * 1);
   background: wheat;
   transform: rotate(20deg);
   transform-origin: left;
-  border: 0.3vh solid black;
+  border: calc(var(--vh) * 0.3) solid black;
   opacity: 1;
 }
 
 .right-arm-upper {
   position: absolute;
-  top: 23.7vh;
-  left: calc(50% + 4.5vh); /* adjust this distance from center */
-  width: 2vh;
-  height: 10vh;
+  top: calc(var(--vh) * 23.7);
+  left: calc(50% + calc(var(--vh) * 4.5)); /* adjust this distance from center */
+  width: calc(var(--vh) * 2);
+  height: calc(var(--vh) * 10);
   background: white;
   transform: rotate(-50deg);  /* Inverted rotation for the opposite direction */
   transform-origin: right;
-  border-radius: 0.4vh;
+  border-radius: calc(var(--vh) * 0.4);
   opacity: 1;
 }
 
 .right-arm-lower {
   position: absolute;
-  top: 31.3vh;
-  left: calc(50% + 9.5vh); /* adjust this distance from center */
-  width: 2vh;
-  height: 8vh;
-  border-radius: 0.2vh;
+  top: calc(var(--vh) * 31.3);
+  left: calc(50% + calc(var(--vh) * 9.36)); /* adjust this distance from center */
+  width: calc(var(--vh) * 2);
+  height: calc(var(--vh) * 8);
+  border-radius: calc(var(--vh) * 0.2);
   background: white;
   transform: rotate(-20deg);  /* Inverted rotation */
   transform-origin: right;
@@ -1082,37 +1082,37 @@ button.english-clear-button:hover svg {
 
 .right-arm-hand {
   position: absolute;
-  top: 38vh;
-  left: calc(50% + 11.1vh); /* adjust this distance from center */
-  width: 2vh;
-  height: 3vh;
-  border-radius: 1vh;
+  top: calc(var(--vh) * 38);
+  left: calc(50% + calc(var(--vh) * 10.8)); /* adjust this distance from center */
+  width: calc(var(--vh) * 2);
+  height: calc(var(--vh) * 3);
+  border-radius: calc(var(--vh) * 1);
   background: wheat;
   transform: rotate(-20deg);  /* Inverted rotation */
   transform-origin: right;
-  border: 0.3vh solid black;
+  border: calc(var(--vh) * 0.3) solid black;
   opacity: 1;
 }
 
 
 .left-shin {
   position: absolute;
-  top: 49vh;
-  left: calc(50% - 4.7vh); /* adjust this distance from center */
-  width: 2vh;
-  height: 10vh;
+  top: calc(var(--vh) * 49);
+  left: calc(50% - calc(var(--vh) * 4.7)); /* adjust this distance from center */
+  width: calc(var(--vh) * 2);
+  height: calc(var(--vh) * 10);
   background: wheat;
-  border: 0.3vh solid black;
+  border: calc(var(--vh) * 0.3) solid black;
   opacity: 1;
 }
 
 .left-shoe {
   position: absolute;
-  top: 57vh;
-  left: calc(50% - 6vh); /* adjust this distance from center */
-  width: 5vh;
-  height: 3vh;
-  border-radius: 5vh;
+  top: calc(var(--vh) * 57);
+  left: calc(50% - calc(var(--vh) * 6)); /* adjust this distance from center */
+  width: calc(var(--vh) * 5);
+  height: calc(var(--vh) * 3);
+  border-radius: calc(var(--vh) * 5);
   background: rgb(92, 61, 20);
   opacity: 1;
   z-index: 10;
@@ -1120,22 +1120,22 @@ button.english-clear-button:hover svg {
 
 .right-shin {
   position: absolute;
-  top: 49vh;
-  left: calc(50% + 2.5vh); /* adjust this distance from center */
-  width: 2vh;
-  height: 10vh;
+  top: calc(var(--vh) * 49);
+  left: calc(50% + calc(var(--vh) * 2.5)); /* adjust this distance from center */
+  width: calc(var(--vh) * 2);
+  height: calc(var(--vh) * 10);
   background: wheat;
-  border: 0.3vh solid black;
+  border: calc(var(--vh) * 0.3) solid black;
   opacity: 1;
 }
 
 .right-shoe {
   position: absolute;
-  top: 57vh;
-  left: calc(50% + 1.3vh); /* adjust this distance from center */
-  width: 5vh;
-  height: 3vh;
-  border-radius: 5vh;
+  top: calc(var(--vh) * 57);
+  left: calc(50% + calc(var(--vh) * 1.3)); /* adjust this distance from center */
+  width: calc(var(--vh) * 5);
+  height: calc(var(--vh) * 3);
+  border-radius: calc(var(--vh) * 5);
   background: rgb(92, 61, 20);
   opacity: 1;
   z-index: 10;
@@ -1154,11 +1154,11 @@ button.english-clear-button:hover svg {
   display: flex;
   justify-content: center;
   margin-top: 0rem;
-  margin-bottom: 4vh;
+  margin-bottom: calc(var(--vh) * 4);
 }
 
 .score-table {
-  font-size: 5vh; /* text-sm */
+  font-size: calc(var(--vh) * 5); /* text-sm */
   border-collapse: collapse;
 }
 
@@ -1184,24 +1184,24 @@ button.english-clear-button:hover svg {
   }
 
   .card {
-    height: 10vh; /* Smaller card height on narrow screens */
+    height: calc(var(--vh) * 10); /* Smaller card height on narrow screens */
     font-size: 2vmax;
   }
 
   .selection-content {
-    max-height: 75vh;
+    max-height: calc(var(--vh) * 75);
   }
 
   .key {
-    height: 6vh; /* Slightly smaller key height for narrow screens */
+    height: calc(var(--vh) * 6); /* Slightly smaller key height for narrow screens */
     font-size: 3vmin;
   }
 
   .passage-container {
     position: fixed;
     width: 100vw;
-    top: 18vh;
-    height: 34.2vh;
+    top: calc(var(--vh) * 18);
+    height: calc(var(--vh) * 34.2);
     z-index: 3;
     background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
   }
@@ -1209,8 +1209,8 @@ button.english-clear-button:hover svg {
   .english-passage-container {
     position: fixed;
     width: 100vw;
-    top: 18vh;
-    height: 34.2vh;
+    top: calc(var(--vh) * 18);
+    height: calc(var(--vh) * 34.2);
     z-index: 3;
     background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
   }
@@ -1218,8 +1218,8 @@ button.english-clear-button:hover svg {
   .hangman-passage-container {
     position: fixed;
     width: 100vw;
-    top: 25.2vh;
-    height: 34.2vh;
+    top: calc(var(--vh) * 25.2);
+    height: calc(var(--vh) * 34.2);
     z-index: 3;
   }
 
@@ -1235,15 +1235,15 @@ button.english-clear-button:hover svg {
   .mobile-suggestions-list {
     visibility: visible;
     position: absolute;
-    top: 16.8vh;
+    top: calc(var(--vh) * 16.8);
     margin: 0;
     z-index: 100;
-    max-height: 34vh;
+    max-height: calc(var(--vh) * 34);
     width: 96%;
     margin-left: 2vw;
     list-style-type: none;
     font-family: "Scheherazade New";
-    margin-top: 0.2vh;
+    margin-top: calc(var(--vh) * 0.2);
     padding: 0;
     overflow-y: auto;
     left: 0;
@@ -1254,7 +1254,7 @@ button.english-clear-button:hover svg {
   }
   
   .mobile-suggestions-list li {
-    padding: 1.4vh;
+    padding: calc(var(--vh) * 1.4);
     border-bottom: 0.3vmin solid #f0f0f0;
     font-family: "Scheherazade New";
     cursor: pointer;
@@ -1286,23 +1286,23 @@ button.english-clear-button:hover svg {
 
   .search-container {
     width: 95%;
-    padding-bottom: 0vh;
+    padding-bottom: calc(var(--vh) * 0);
     z-index: 100;
   }
 
   .english-search-container {
     width: 95%;
-    padding-bottom: 0vh;
+    padding-bottom: calc(var(--vh) * 0);
     z-index: 100;
   }
 
   .search-container input {
-    height: 5vh;
+    height: calc(var(--vh) * 5);
     padding-left: 8vw;
   }
 
   .english-search-container input {
-    height: 5vh;
+    height: calc(var(--vh) * 5);
     padding-left: 8vw;
   }
 
@@ -1319,41 +1319,41 @@ button.english-clear-button:hover svg {
   }
 
   .Start-button {
-    bottom: 4vh;
+    bottom: calc(var(--vh) * 4);
   }
 
   button.clear-button {
     left: 5vw; /* Position the button on the left side for RTL layout */
-    top: 4.4vh; /* Vertically center the button */
-    width: 2vh;
-    height: 2vh;
+    top: calc(var(--vh) * 4.4); /* Vertically center the button */
+    width: calc(var(--vh) * 2);
+    height: calc(var(--vh) * 2);
   }
 
   button.english-clear-button {
     right: 5vw; /* Position the button on the left side for RTL layout */
-    top: 3.7vh; /* Vertically center the button */
-    width: 2vh;
-    height: 2vh;
+    top: calc(var(--vh) * 3.7); /* Vertically center the button */
+    width: calc(var(--vh) * 2);
+    height: calc(var(--vh) * 2);
   }
 
   /* Mic Button Styling */
   .mic-button {
     left: 7vw; /* Position the button on the left side for RTL layout */
-    top: 2.6vh; /* Vertically center the button */
-    width: 3.7vh;
-    height: 3.7vh;
+    top: calc(var(--vh) * 2.6); /* Vertically center the button */
+    width: calc(var(--vh) * 3.7);
+    height: calc(var(--vh) * 3.7);
   }
 
   .english-mic-button {
     right: 7vw; /* Position the button on the left side for RTL layout */
-    top: 2vh; /* Vertically center the button */
-    width: 3.7vh;
-    height: 3.7vh;
+    top: calc(var(--vh) * 2); /* Vertically center the button */
+    width: calc(var(--vh) * 3.7);
+    height: calc(var(--vh) * 3.7);
   }
 
   .notification-container {
     width: 75vw;
-    height: 2vh;
+    height: calc(var(--vh) * 2);
   }
 
   .score-table {
@@ -1361,11 +1361,11 @@ button.english-clear-button:hover svg {
   }
 
   .juzz-label.mcq {
-    height: 12vh;
+    height: calc(var(--vh) * 12);
   }
 
   .blanked {
-    top: 3vh;
+    top: calc(var(--vh) * 3);
   }
 
   /* Hangman */
@@ -1374,100 +1374,100 @@ button.english-clear-button:hover svg {
   }
 
   .beam {
-    top: 0vh;
+    top: calc(var(--vh) * 0);
     left: 12vw;
     width: 39.5vw;
   }
 
   .rope {
-    height: 2vh;
+    height: calc(var(--vh) * 2);
   }
 
   /* Body parts */
   .head {
-    top: 3vh;
-    width: 7vh;
-    height: 7vh;
+    top: calc(var(--vh) * 3);
+    width: calc(var(--vh) * 7);
+    height: calc(var(--vh) * 7);
   }
 
   .body {
-    top: 5vh;
-    width: 2vh;
-    border-left: 2vh solid transparent;   /* half of bottom width */
-    border-right: 2vh solid transparent;  /* same */
-    border-bottom: 19vh solid white;        /* thawb body */
-    border-radius: 1vh;
+    top: calc(var(--vh) * 5);
+    width: calc(var(--vh) * 2);
+    border-left: calc(var(--vh) * 2) solid transparent;   /* half of bottom width */
+    border-right: calc(var(--vh) * 2) solid transparent;  /* same */
+    border-bottom: calc(var(--vh) * 19) solid white;        /* thawb body */
+    border-radius: calc(var(--vh) * 1);
   }
 
   .left-arm-upper {
-    top: 11vh;
-    left: calc(50% - 3.6vh); /* adjust this distance from center */
-    width: 1vh;
-    height: 5vh;
+    top: calc(var(--vh) * 11);
+    left: calc(50% - calc(var(--vh) * 3.6)); /* adjust this distance from center */
+    width: calc(var(--vh) * 1);
+    height: calc(var(--vh) * 5);
   }
 
   .left-arm-lower {
     position: absolute;
-    top: 14.8vh;
-    left: calc(50% - 6vh); /* adjust this distance from center */
-    width: 1vh;
-    height: 4vh;
+    top: calc(var(--vh) * 14.8);
+    left: calc(50% - calc(var(--vh) * 6)); /* adjust this distance from center */
+    width: calc(var(--vh) * 1);
+    height: calc(var(--vh) * 4);
   }
 
   .left-arm-hand {
-    top: 18vh;
-    left: calc(50% - 7vh); /* adjust this distance from center */
-    width: 1vh;
-    height: 1.5vh;
+    top: calc(var(--vh) * 18);
+    left: calc(50% - calc(var(--vh) * 7)); /* adjust this distance from center */
+    width: calc(var(--vh) * 1);
+    height: calc(var(--vh) * 1.5);
   }
 
   .right-arm-upper {
-    top: 11vh;
-    left: calc(50% + 2.6vh); /* adjust this distance from center */
-    width: 1vh;
-    height: 5vh;
+    top: calc(var(--vh) * 11);
+    left: calc(50% + calc(var(--vh) * 2.6)); /* adjust this distance from center */
+    width: calc(var(--vh) * 1);
+    height: calc(var(--vh) * 5);
   }
 
   .right-arm-lower {
     position: absolute;
-    top: 14.8vh;
-    left: calc(50% + 5vh); /* adjust this distance from center */
-    width: 1vh;
-    height: 4vh;
+    top: calc(var(--vh) * 14.8);
+    left: calc(50% + calc(var(--vh) * 5)); /* adjust this distance from center */
+    width: calc(var(--vh) * 1);
+    height: calc(var(--vh) * 4);
   }
 
   .right-arm-hand {
-    top: 18vh;
-    left: calc(50% + 5.6vh); /* adjust this distance from center */
-    width: 1vh;
-    height: 1.5vh;
+    top: calc(var(--vh) * 18);
+    left: calc(50% + calc(var(--vh) * 5.6)); /* adjust this distance from center */
+    width: calc(var(--vh) * 1);
+    height: calc(var(--vh) * 1.5);
   }
 
   .left-shin {
-    top: 21vh;
-    left: calc(50% - 2.2vh); /* adjust this distance from center */
-    width: 1vh;
-    height: 5vh;
+    top: calc(var(--vh) * 21);
+    left: calc(50% - calc(var(--vh) * 2.2)); /* adjust this distance from center */
+    width: calc(var(--vh) * 1);
+    height: calc(var(--vh) * 5);
   }
 
   .left-shoe {
-    top: 26vh;
-    left: calc(50% - 2.72vh); /* adjust this distance from center */
-    width: 2.5vh;
-    height: 1.5vh;
+    top: calc(var(--vh) * 26);
+    left: calc(50% - calc(var(--vh) * 2.72)); /* adjust this distance from center */
+    width: calc(var(--vh) * 2.5);
+    height: calc(var(--vh) * 1.5);
   }
 
   .right-shin {
-    top: 21vh;
-    left: calc(50% + 0.8vh); /* adjust this distance from center */
-    width: 1vh;
-    height: 5vh;
+    top: calc(var(--vh) * 21);
+    left: calc(50% + calc(var(--vh) * 0.8)); /* adjust this distance from center */
+    width: calc(var(--vh) * 1);
+    height: calc(var(--vh) * 5);
   }
 
   .right-shoe {
-    top: 26vh;
-    left: calc(50% + 0.33vh); /* adjust this distance from center */
-    width: 2.5vh;
-    height: 1.5vh;
+    top: calc(var(--vh) * 26);
+    left: calc(50% + calc(var(--vh) * 0.33)); /* adjust this distance from center */
+    width: calc(var(--vh) * 2.5);
+    height: calc(var(--vh) * 1.5);
   }
 }
