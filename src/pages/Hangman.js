@@ -223,7 +223,6 @@ function Hangman() {
         <div className='blanked'
           style={{
             position: "absolute",
-            top: "6vh",
             left: "50%",
             direction: "rtl",
             transform: "translateX(-50%)",

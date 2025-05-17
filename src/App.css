@@ -1151,6 +1151,10 @@ button.english-clear-button:hover svg {
   animation: fadeIn 0.8s ease forwards;
 }
 
+.blanked {
+  top: calc(var(--vh) * 6);
+}
+
 .score-table-container {
   display: flex;
   justify-content: center;
@@ -1382,7 +1386,7 @@ button.english-clear-button:hover svg {
   }
 
   .blanked {
-    top: calc(var(--vh) * 3);
+    top: calc(var(--vh) * 4);
   }
 
   /* Hangman */
