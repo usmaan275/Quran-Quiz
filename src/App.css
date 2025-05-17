@@ -1177,7 +1177,7 @@ button.english-clear-button:hover svg {
 }
 
 /* Slightly smaller height for phones */
-@media (max-width: 768px) {
+@media screen and (orientation: portrait) {
   .card-container {
     grid-template-columns: 1fr; /* Single column on smaller screens */
     gap: 2vmax;
@@ -1186,6 +1186,10 @@ button.english-clear-button:hover svg {
   .card {
     height: calc(var(--vh) * 10); /* Smaller card height on narrow screens */
     font-size: 2vmax;
+  }
+
+  .popup {
+    width: 80vw;
   }
 
   .selection-content {
@@ -1200,8 +1204,8 @@ button.english-clear-button:hover svg {
   .passage-container {
     position: fixed;
     width: 100vw;
-    top: calc(var(--vh) * 18);
-    height: calc(var(--vh) * 34.2);
+    top: calc(var(--vh) * 20);
+    height: calc(var(--vh) * 32.2);
     z-index: 3;
     background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
   }
@@ -1209,8 +1213,8 @@ button.english-clear-button:hover svg {
   .english-passage-container {
     position: fixed;
     width: 100vw;
-    top: calc(var(--vh) * 18);
-    height: calc(var(--vh) * 34.2);
+    top: calc(var(--vh) * 20);
+    height: calc(var(--vh) * 32.2);
     z-index: 3;
     background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
   }
@@ -1235,10 +1239,10 @@ button.english-clear-button:hover svg {
   .mobile-suggestions-list {
     visibility: visible;
     position: absolute;
-    top: calc(var(--vh) * 16.8);
+    top: calc(var(--vh) * 18.8);
     margin: 0;
     z-index: 100;
-    max-height: calc(var(--vh) * 34);
+    max-height: calc(var(--vh) * 32);
     width: 96%;
     margin-left: 2vw;
     list-style-type: none;
@@ -1298,13 +1302,13 @@ button.english-clear-button:hover svg {
 
   .search-container input {
     font-size: 16px;
-    height: calc(var(--vh) * 5);
+    height: calc(var(--vh) * 7);
     padding-left: 15vw;
   }
 
   .english-search-container input {
     font-size: 16px;
-    height: calc(var(--vh) * 5);
+    height: calc(var(--vh) * 7);
     padding-right: 15vw;
     padding-left: 15vw;
   }
@@ -1330,32 +1334,32 @@ button.english-clear-button:hover svg {
   }
 
   button.clear-button {
-    left: 8vw; /* Position the button on the left side for RTL layout */
-    top: calc(var(--vh) * 4.4); /* Vertically center the button */
-    width: calc(var(--vh) * 2);
-    height: calc(var(--vh) * 2);
+    left: 6vw; /* Position the button on the left side for RTL layout */
+    top: calc(var(--vh) * 5.4); /* Vertically center the button */
+    width: calc(var(--vh) * 4);
+    height: calc(var(--vh) * 4);
   }
 
   button.english-clear-button {
-    right: 8vw; /* Position the button on the left side for RTL layout */
-    top: calc(var(--vh) * 3.7); /* Vertically center the button */
-    width: calc(var(--vh) * 2);
-    height: calc(var(--vh) * 2);
+    right: 6vw; /* Position the button on the left side for RTL layout */
+    top: calc(var(--vh) * 4.7); /* Vertically center the button */
+    width: calc(var(--vh) * 4);
+    height: calc(var(--vh) * 4);
   }
 
   /* Mic Button Styling */
   .mic-button {
     left: 12vw; /* Position the button on the left side for RTL layout */
-    top: calc(var(--vh) * 2.6); /* Vertically center the button */
-    width: calc(var(--vh) * 3.7);
-    height: calc(var(--vh) * 3.7);
+    top: calc(var(--vh) * 3.1); /* Vertically center the button */
+    width: calc(var(--vh) * 4.7);
+    height: calc(var(--vh) * 4.7);
   }
 
   .english-mic-button {
     right: 12vw; /* Position the button on the left side for RTL layout */
-    top: calc(var(--vh) * 2); /* Vertically center the button */
-    width: calc(var(--vh) * 3.7);
-    height: calc(var(--vh) * 3.7);
+    top: calc(var(--vh) * 2.5); /* Vertically center the button */
+    width: calc(var(--vh) * 4.7);
+    height: calc(var(--vh) * 4.7);
   }
 
   .notification-container {
@@ -1383,7 +1387,7 @@ button.english-clear-button:hover svg {
   .beam {
     top: calc(var(--vh) * 0);
     left: 12vw;
-    width: 39.5vw;
+    width: 40vw;
   }
 
   .rope {

@@ -436,6 +436,7 @@ function ArabicQuestions() {
   };
 
   const handleUserSelection = (selectedAyahNumber) => {
+    handleClear();
     const correctAyahNumber = passageAyatRef.current[indexRef.current].ayahNumber;
     const isMutashabih = mutashabihatGroups.some(group =>
       group.includes(selectedAyahNumber) && group.includes(correctAyahNumber)
