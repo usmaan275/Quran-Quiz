@@ -658,10 +658,10 @@ function EnglishQuestions() {
     const searchInput = document.getElementById('search-input');
     
     // Check if it's a backspace key
-    if (keyValue === '⌦') {
+    if (keyValue === '⌦' || keyValue === '⌫') {
       // Remove the last character
       searchInput.value = searchInput.value.slice(0, -1);
-    } else if (keyValue === 'space') {
+    } else if (keyValue === 'space' || keyValue === 'مسافة') {
       searchInput.value += ' ';
     } else {
       // Append the clicked key's value to the input field

@@ -1298,12 +1298,13 @@ button.english-clear-button:hover svg {
 
   .search-container input {
     height: calc(var(--vh) * 5);
-    padding-left: 8vw;
+    padding-left: 15vw;
   }
 
   .english-search-container input {
     height: calc(var(--vh) * 5);
-    padding-left: 8vw;
+    padding-right: 15vw;
+    padding-left: 15vw;
   }
 
   .keyboard-container {
@@ -1323,14 +1324,14 @@ button.english-clear-button:hover svg {
   }
 
   button.clear-button {
-    left: 5vw; /* Position the button on the left side for RTL layout */
+    left: 8vw; /* Position the button on the left side for RTL layout */
     top: calc(var(--vh) * 4.4); /* Vertically center the button */
     width: calc(var(--vh) * 2);
     height: calc(var(--vh) * 2);
   }
 
   button.english-clear-button {
-    right: 5vw; /* Position the button on the left side for RTL layout */
+    right: 8vw; /* Position the button on the left side for RTL layout */
     top: calc(var(--vh) * 3.7); /* Vertically center the button */
     width: calc(var(--vh) * 2);
     height: calc(var(--vh) * 2);
@@ -1338,14 +1339,14 @@ button.english-clear-button:hover svg {
 
   /* Mic Button Styling */
   .mic-button {
-    left: 7vw; /* Position the button on the left side for RTL layout */
+    left: 12vw; /* Position the button on the left side for RTL layout */
     top: calc(var(--vh) * 2.6); /* Vertically center the button */
     width: calc(var(--vh) * 3.7);
     height: calc(var(--vh) * 3.7);
   }
 
   .english-mic-button {
-    right: 7vw; /* Position the button on the left side for RTL layout */
+    right: 12vw; /* Position the button on the left side for RTL layout */
     top: calc(var(--vh) * 2); /* Vertically center the button */
     width: calc(var(--vh) * 3.7);
     height: calc(var(--vh) * 3.7);
