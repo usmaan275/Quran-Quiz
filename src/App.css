@@ -1297,11 +1297,13 @@ button.english-clear-button:hover svg {
   }
 
   .search-container input {
+    font-size: 16px;
     height: calc(var(--vh) * 5);
     padding-left: 15vw;
   }
 
   .english-search-container input {
+    font-size: 16px;
     height: calc(var(--vh) * 5);
     padding-right: 15vw;
     padding-left: 15vw;
@@ -1317,6 +1319,10 @@ button.english-clear-button:hover svg {
 
   .key {
     max-width: 8vw;
+  }
+
+  .key.space {
+    max-width: 23vw;
   }
 
   .Start-button {

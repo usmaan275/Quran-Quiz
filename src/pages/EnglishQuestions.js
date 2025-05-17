@@ -44,7 +44,7 @@ function EnglishQuestions() {
   const [notification, setNotification] = useState(''); // Display messages  
 
   const timeoutRef = useRef(null);
-  const language = useRef("en-GB");
+  const language = useRef("ar-SA");
 
   const location = useLocation(); // Get the current location
   const { selectedJuzz } = location.state || { selectedJuzz: [] }; // Destructure selectedJuzz from state
@@ -882,7 +882,7 @@ function EnglishQuestions() {
               type="text"
               id="search-input"
               value={searchText}
-              placeholder="Please search in English or Arabic for the next Ayah"
+              placeholder="Search in English or Arabic for the next Ayah"
               onChange={(e) => handleSearch(e.target.value)}
             />
             <button 
@@ -896,9 +896,9 @@ function EnglishQuestions() {
             <ul className="suggestions-list hidden" id="suggestions"></ul>
           </div>
           <button onClick={toggleKeyboard} className="toggle-keyboard-btn">
-            Switch to Arabic
+            Switch to English
           </button>
-          <div className="keyboard-container hidden">
+          <div className="keyboard-container">
             {/* Keyboard */}
             <div className="keyboard-row">
               {/* Row 1 */}
@@ -961,7 +961,7 @@ function EnglishQuestions() {
               <button className="key backspace">⌦</button>
             </div>
           </div>
-          <div className="english-keyboard-container">
+          <div className="english-keyboard-container hidden">
             {/* Keyboard */}
             <div className="keyboard-row">
               {/* Row 1 */}
