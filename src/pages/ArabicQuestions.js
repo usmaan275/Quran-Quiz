@@ -495,8 +495,13 @@ function ArabicQuestions() {
         attemptsRef.current -= 1;
         setAttempts(attemptsRef.current);
 
-        setNotification(`Incorrect! Please try again. ${attemptsRef.current} attempts remaining. (-50 points)`);
-        setShowNotification(true);
+        if (attemptsRef.current == 1) {
+          setNotification(`Incorrect! Please try again. ${attemptsRef.current} attempt remaining. (-50 points)`);
+          setShowNotification(true);
+        } else {
+          setNotification(`Incorrect! Please try again. ${attemptsRef.current} attempts remaining. (-50 points)`);
+          setShowNotification(true);
+        }
 
         // Clear any existing timeout if it exists
         if (timeoutRef.current) {
