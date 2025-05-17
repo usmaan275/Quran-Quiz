@@ -50,7 +50,7 @@ const questions = [
   {
     question: "What is the other major battle mentioned by name in the Quran",
     options: ["Battle of Tabuk", "Battle of Hunayn", "Battle of Badr", "Battle of Uhud"],
-    answer: "Battle of Tabuk"
+    answer: "Battle of Hunayn"
   },
   {
     question: "Whose body has been preserved as a sign for later generations?",
