@@ -397,7 +397,7 @@
 /* For the passage text (inside the container) */
 .passage-text {
   white-space: pre-line; /* Ensure the line breaks in the passage are respected */
-  font-size: 0.9em; /* Adjust font size */
+  font-size: 1.1em; /* Adjust font size */
   line-height: 2.4; /* Adjust line height for readability */
   overflow-wrap: break-word; /* Ensure words break nicely within the container */
   z-index: inherit;
@@ -930,6 +930,8 @@ button.english-clear-button:hover svg {
 .selection-content.mcq {
   margin-left: 1.75vw;
   width: 90vw;
+  height: calc(var(--vh) * 5);
+  justify-content: center;
 }
 
 .juzz-label.mcq {
@@ -1200,6 +1202,10 @@ button.english-clear-button:hover svg {
     font-size: 3vmin;
   }
 
+  .key.h {
+    font-size: 1.1em;
+  }
+
   .passage-container {
     position: fixed;
     width: 100vw;
@@ -1364,6 +1370,7 @@ button.english-clear-button:hover svg {
   .notification-container {
     width: 75vw;
     height: calc(var(--vh) * 2);
+    font-size: 2vmin;
   }
 
   .score-table {
@@ -1371,7 +1378,7 @@ button.english-clear-button:hover svg {
   }
 
   .juzz-label.mcq {
-    height: calc(var(--vh) * 12);
+    height: calc(var(--vh) * 10);
   }
 
   .blanked {

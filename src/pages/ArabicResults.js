@@ -14,6 +14,7 @@ function ArabicResults() {
         time = 0,
         pointsDeducted = 0,
         pointsAdded = 0,
+        juzz = 0,
       } = location.state || {};
 
     // Determine score color class
@@ -54,8 +55,12 @@ function ArabicResults() {
                                 <td className="value">{pointsDeducted / stepForPtsDeducted} (× -{stepForPtsDeducted}pts)</td>
                             </tr>
                             <tr>
+                                <td className="label">Juzz Selected:</td>
+                                <td className="value">{juzz} out of 30</td>
+                            </tr>
+                            <tr>
                                 <td className="label">Final Score:</td>
-                                <td className="value">1000 + {pointsAdded} - {time} - {pointsDeducted} = {score}</td>
+                                <td className="value">(1000 + {pointsAdded} - {time} - {pointsDeducted}) × ({juzz}/30) = {score}</td>
                             </tr>
                             </tbody>
                         </table>

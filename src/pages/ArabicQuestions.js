@@ -908,7 +908,8 @@ const handleSearch = (input) => {
       
       // Calculate score
       const elapsedTimeInSeconds = timer;
-      const score = (1000 + pointsAdded.current) - (elapsedTimeInSeconds + pointsDeducted.current);
+      const points = (1000 + pointsAdded.current) - (elapsedTimeInSeconds + pointsDeducted.current);
+      const score = Math.round(points * (selectedJuzz.length / 30));
       
       // Navigate to results page and pass score
       navigate("/results", { 
@@ -919,7 +920,8 @@ const handleSearch = (input) => {
           stepForPtsAdded,
           time: elapsedTimeInSeconds, 
           pointsDeducted: pointsDeducted.current,
-          pointsAdded: pointsAdded.current
+          pointsAdded: pointsAdded.current,
+          juzz: selectedJuzz.length
         } 
       });
     }

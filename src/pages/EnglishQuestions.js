@@ -737,7 +737,8 @@ function EnglishQuestions() {
       
       // Calculate score (1000 - elapsed time in seconds)
       const elapsedTimeInSeconds = timer;
-      const score = (1000 + pointsAdded.current) - (elapsedTimeInSeconds + pointsDeducted.current);
+      const points = (1000 + pointsAdded.current) - (elapsedTimeInSeconds + pointsDeducted.current);
+      const score = Math.round(points * (selectedJuzz.length / 30));
       
       // Navigate to results page and pass
       navigate("/results", { 
@@ -748,7 +749,8 @@ function EnglishQuestions() {
           stepForPtsAdded,
           time: elapsedTimeInSeconds, 
           pointsDeducted: pointsDeducted.current,
-          pointsAdded: pointsAdded.current
+          pointsAdded: pointsAdded.current,
+          juzz: selectedJuzz.length
         } 
       });
     }
@@ -883,7 +885,7 @@ function EnglishQuestions() {
               type="text"
               id="search-input"
               value={searchText}
-              placeholder="Search in English or Arabic for the next Ayah"
+              placeholder="Search Ayat in English or Arabic"
               onChange={(e) => handleSearch(e.target.value)}
             />
             <button 
