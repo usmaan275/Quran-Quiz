@@ -12,7 +12,7 @@ function Hangman() {
     "ذاريات", "طور", "نجم", "قمر", "رحمن", "واقعة", "حديد", "مجادلة", "حشر", "ممتحنة",
     "صف", "جمعة", "منافقون", "تغابن", "طلاق", "تحريم", "ملك", "قلم", "حاقة", "معارج",
     "نوح", "جن", "مزمل", "مدثر", "قيامة", "إنسان", "مرسلات", "نبأ", "نازعات", "عبس",
-    "تكوير", "إنفطار", "مطففين", "إنشقاق", "بروج", "طارق", "أعلى", "غاشية", "فجر", "بلد",
+    "تكوير", "انفطار", "مطففين", "انشقاق", "بروج", "طارق", "أعلى", "غاشية", "فجر", "بلد",
     "شمس", "ليل", "ضحى", "شرح", "تين", "علق", "قدر", "بينة", "زلزال", "عاديات",
     "قارعة", "تكاثر", "عصر", "همزة", "فيل", "قريش", "ماعون", "كوثر", "كافرون", "نصر",
     "مسد", "إخلاص", "فلق", "ناس"
@@ -155,7 +155,7 @@ function Hangman() {
         <div>
         {/* Floating Instructions Button */}
           <button className="instructions-button" onClick={() => setIsOpen(true)}>
-            ℹ️ Instructions
+            ℹ️Instructions
           </button>
 
           {/* Overlay + Modal */}
@@ -220,16 +220,16 @@ function Hangman() {
       </div>
 
       <div className="type-container">
-        <div
+        <div className='blanked'
           style={{
             position: "absolute",
-            top: "10vh",
+            top: "6vh",
             left: "50%",
             direction: "rtl",
             transform: "translateX(-50%)",
-            fontSize: showName ? "4rem": "2rem",
+            fontSize: showName ? "3.5vmax": "2.7vmax",
             fontFamily: "Scheherazade New",
-            letterSpacing: showName ? "0" : "1rem" ,
+            letterSpacing: showName ? "0" : "0.7vmax" ,
             fontWeight: "bold",
             color: "#fff",
             zIndex: 10
@@ -245,7 +245,7 @@ function Hangman() {
           {["ج","ح","خ","ه","ع","غ","ف","ق","ث","ص","ض"].map((letter) => (
             <button
               key={letter}
-              className="key"
+              className="key h"
               onClick={() => handleGuess(letter)}
               disabled={guessedLetters.includes(letter) || gameOver}
               style={{ opacity: guessedLetters.includes(letter) ? 0.4 : 1 }}
@@ -259,7 +259,7 @@ function Hangman() {
           {["ة","ك","م","ن","ت","ا","ل","ب","ي","س","ش"].map((letter) => (
             <button
               key={letter}
-              className="key"
+              className="key h"
               onClick={() => handleGuess(letter)}
               disabled={guessedLetters.includes(letter) || gameOver}
               style={{ opacity: guessedLetters.includes(letter) ? 0.4 : 1 }}
@@ -273,7 +273,7 @@ function Hangman() {
           {["ى","و","ر","ز","د","ذ","ط","ظ","ء"].map((letter) => (
             <button
               key={letter}
-              className="key"
+              className="key h"
               onClick={() => handleGuess(letter)}
               disabled={guessedLetters.includes(letter) || gameOver}
               style={{ opacity: guessedLetters.includes(letter) ? 0.4 : 1 }}
@@ -287,7 +287,7 @@ function Hangman() {
           {["أ","إ","آ","ؤ","ئ"].map((letter) => (
             <button
               key={letter}
-              className="key"
+              className="key h"
               onClick={() => handleGuess(letter)}
               disabled={guessedLetters.includes(letter) || gameOver}
               style={{ opacity: guessedLetters.includes(letter) ? 0.4 : 1 }}

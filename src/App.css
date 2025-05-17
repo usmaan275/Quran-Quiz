@@ -4,24 +4,24 @@
 }
 
 .App-header {
+  transition: 0.3s;
   background: linear-gradient(175deg, #2e004f, #5c007a);
-  box-shadow: inset 0 0 10px #000000, inset 0 0 20px #000000;
+  box-shadow: inset 0 0 2vh #000000, inset 0 0 2vh #000000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px; /* Add padding to avoid overlap */
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: calc(10px + 2vmin);
+  padding: 4vh 2vh; /* Add padding to avoid overlap */
+  font-size: 3vmin;
   color: white;
   box-sizing: border-box; /* Ensures padding doesn’t add extra width */
 }
 
 .quba {
-  width: 12vw; /* Adjust the width as a percentage of the viewport width */
-  height: 12vw; /* Ensures the element remains a square */
-  margin: 20px auto;
+  width: 12vmax; /* Adjust the width as a percentage of the viewport width */
+  height: 12vmax; /* Ensures the element remains a square */
+  margin: 2vh auto;
   display: block;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   opacity: 0; /* Initially hidden */
@@ -34,9 +34,9 @@
 
 /* Optional: Placeholder style */
 .quba-placeholder {
-  width: 12vw; /* Adjust the width as a percentage of the viewport width */
-  height: 12vw; /* Ensures the element remains a square */
-  margin: 20px auto;
+  width: 12vmax; /* Adjust the width as a percentage of the viewport width */
+  height: 12vmax; /* Ensures the element remains a square */
+  margin: 2vh auto;
   background-color: #f0f0f0; /* Light gray placeholder */
 }
 
@@ -45,11 +45,11 @@
 .card-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 2vh;
   width: 90%; /* Adjust to avoid overflow */
-  margin: 20px auto;
+  margin: 2vh auto;
   max-width: 100%;
-  padding: 0 10px; /* Padding on sides to keep cards centered */
+  padding: 0 1vh; /* Padding on sides to keep cards centered */
   box-sizing: border-box;
 }
 
@@ -61,12 +61,12 @@
   background: linear-gradient(175deg, #003d73, #3a5fcd); /* Gradient background */
   color: white;
   text-decoration: none;
-  border-radius: 10px;
-  padding: 20px;
-  font-size: calc(8px + 1.7vmin); /* Responsive font size */
+  border-radius: 1vmax;
+  padding: 2vh;
+  font-size: 3vmin; /* Responsive font size */
   height: 15vh;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  border: 3px solid rgba(255, 255, 255, 0.8); /* White outline with slight transparency */
+  border: 0.4vh solid rgba(255, 255, 255, 0.8); /* White outline with slight transparency */
 }
 
 .card:hover {
@@ -74,33 +74,19 @@
   transform: scale(1.02); /* Slight scale effect on hover */
 }
 
-/* Slightly smaller height for phones */
-@media (max-width: 768px) {
-  .card-container {
-    grid-template-columns: 1fr; /* Single column on smaller screens */
-    gap: 10px;
-  }
-
-  .card {
-    height: 10vh; /* Smaller card height on narrow screens */
-    font-size: calc(8px + 2vmin);
-  }
-}
-
 /* Back button styling */
 .Back-button {
   position: absolute;
   top: 2vh;
-  left: 20px;
-  padding: 8px 12px;
+  left: 1vmax;
+  padding: 1vmin 1.5vmin;
   background-color: #b22222;
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.6); /* White outline with slight transparency */
-  border-radius: 5px;
+  border: 0.3vmin solid rgba(255, 255, 255, 0.6); /* White outline with slight transparency */
+  border-radius: 0.5vmax;
   text-decoration: none;
-  font-size: clamp(15px, 1.5vw, 13px); /* Responsive font size */
+  font-size: 1vmax; /* Responsive font size */
   cursor: pointer;
-  z-index: 100;
 }
 
 .Back-button:hover {
@@ -110,46 +96,45 @@
 /* Timer Display */
 .timer-display {
   position: absolute;  /* Keeps the timer at the top of the page */
-  top: 20px;  /* 2% from the top of the viewport */
-  right: 20px;  /* 2% from the left of the viewport */
-  font-size: clamp(15px, 1.5vw, 13px);;  /* Responsive font size based on viewport width */
+  top: 2vh;  /* 2% from the top of the viewport */
+  right: 1vmax;  /* 2% from the left of the viewport */
+  font-size: 1.2vmax;  /* Responsive font size based on viewport width */
   font-weight: bold;
   color: #157218;  /* Green color */
   background-color: rgba(255, 255, 255, 0.7);  /* Semi-transparent background */
-  padding: 1vh 2vw;  /* Padding based on viewport height and width */
-  border-radius: 10px;  /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  /* Subtle shadow effect */
+  padding: 1vmin 2vmin;  /* Padding based on viewport height and width */
+  border-radius: 0.3vmax;  /* Rounded corners */
+  box-shadow: 0 0.2vmin 0.8vmin rgba(0, 0, 0, 0.2);  /* Subtle shadow effect */
 }
 
 /* Question Tracker */
 .question-tracker {
   position: fixed;  /* Fixed positioning to keep it in place */
   top: 2vh;  /* 5% from the bottom of the viewport */
-  font-size: 1.5vw;  /* Responsive font size based on viewport width */
+  font-size: 1.5vmax;  /* Responsive font size based on viewport width */
   font-weight: bold;
   color: #0d5fa2;  /* Blue color */
   background-color: rgba(255, 255, 255, 0.7);  /* Semi-transparent background */
-  padding: 1vh 2vw;  /* Padding based on viewport height and width */
+  padding: 1.2vmin 2vmin;  /* Padding based on viewport height and width */
   border-radius: 10px;  /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  /* Subtle shadow effect */
+  box-shadow: 0 0.2vmin 0.8vmin rgba(0, 0, 0, 0.2);  /* Subtle shadow effect */
 }
 
 /* Floating Instructions Button */
 .instructions-button {
   position: fixed;
   top: 2vh;
-  right: 2vw;
+  right: 1vmax;
+  padding: 1vmin 1.5vmin;
+  width: 9vmax;
   background: linear-gradient(175deg, #004c78, #4d90cc); /* Blue gradient */
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: 25px;  color: white;
-  padding: 1.2vh 2vw;
+  border: 0.3vmin solid rgba(255, 255, 255, 0.6);
+  border-radius: 0.5vmax;  color: white;
   cursor: pointer;
-  font-size: 1vw;
   overflow: hidden;
-  transition: 0.3s;
-  width: 11vw;
-  height: 5vh;
+  text-decoration: none;
+  font-size: 1vmax; /* Responsive font size */
 }
 
 .instructions-button:hover {
@@ -167,36 +152,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 50;
+  z-index: 9999;
 }
 
 /* Scrollable Popup */
 .popup {
   background: linear-gradient(175deg, #2e004f, #5c007a);
   padding: 4vh 3vw;
-  border-radius: 12px;
+  border-radius: 1vmax;
   width: 50vw;
   max-height: 75vh;
   overflow-y: auto;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1vmin 1vmin rgba(0, 0, 0, 0.2);
   z-index: 100;
 }
 
 .popup-close-button {
   position: absolute;
   top: 2vh;
-  right: 2vw;
+  right: 1vmax;
   background: red; /* Keep the red color */
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: 25px;  color: white;
-  padding: 1.2vh 2vw;
+  border: 0.3vmin solid rgba(255, 255, 255, 0.6);
+  border-radius: 0.5vmax;  color: white;
+  padding: 1vmin 1.5vmin;
   cursor: pointer;
-  font-size: 1.0vw;
-  transition: 0.3s;
-  width: 11vw;
-  height: 5vh;
+  font-size: 1vmax;
+  width: 9vmax;
 }
 
 .popup-close-button:hover {
@@ -210,13 +193,13 @@
   bottom: 2vh;
   left: 50%;                   /* Center horizontally */
   transform: translateX(-50%); /* Perfect centering */
-  padding: 15px 50px;
+  padding: 1vmax 3vmax;
   background: linear-gradient(175deg, #0b3d25, #1f6d43); /* Green gradient */
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.8); /* White outline with slight transparency */
-  border-radius: 20px;
+  border-radius: 3vmax;
   text-decoration: none;
-  font-size: clamp(14px, 1.5vw, 16px); /* Responsive font size */
+  font-size: 1.2vmax; /* Responsive font size */
   cursor: pointer;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -230,40 +213,32 @@
   cursor: not-allowed; /* Change cursor to indicate it's not clickable */
 }
 
-/* Optional responsive adjustments for small screens */
-@media (max-width: 800px) {
-  .Back-button,
-  .Start-button {
-    padding: 8px 15px;        /* Smaller padding on mobile */
-    font-size: clamp(12px, 4vw, 14px); /* Adjusted font size */
-  }
-}
-
-/* Container for the selection buttons */
+/* Container for the selection buttons
 .selection-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
-}
+} */
 
 /* Toggle buttons for selection */
 .toggle-button {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: clamp(8px, 1.5vw, 14px);
+  font-size: 1vmax;
   display: flex; /* Make the button a flex container */
   justify-content: center; /* Center the text horizontally */
   align-items: center; /* Center the text vertically */
   background: linear-gradient(175deg, #004c78, #4d90cc); /* Blue gradient */
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: 25px;
-  padding: 15px 15px; /* Increased padding for larger buttons */
+  border: 0.3vmin solid rgba(255, 255, 255, 0.6);
+  border-radius: 3vmax;
+  width: 35vw;
+  height: 7vmin;
   flex: 1; /* Make buttons equal length */
-  margin: 0 5px;
+  margin: 0 0.4vmin;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  min-width: 100px; /* Set a minimum width for buttons */
+  min-width: 90px; /* Set a minimum width for buttons */
 }
 
 .toggle-button:hover {
@@ -274,8 +249,8 @@
 .toggle-buttons-container {
   display: flex; /* Arrange buttons side by side */
   justify-content: center;
-  gap: 10px; /* Space between buttons */
-  margin-bottom: 20px;
+  gap: 1vmax; /* Space between buttons */
+  margin-bottom: 2vmin;
 }
 
 /* Content area for selected option display */
@@ -284,27 +259,40 @@
   max-height: 60vh; /* Limit height to 60% of the viewport height */
   overflow-y: auto; /* Allow vertical scrolling */
   width: 80vw;
-  margin-bottom: 2vh;
-  padding: 20px;
-  border-radius: 10px;
+  margin-top: 6vmin;
+  margin-bottom: 2vmin;
+  padding: 2.5vmin;
+  border-radius: 1vmax;
   background-color: rgba(255, 255, 255, 0.1); /* Transparent background for effect */
   display: flex; /* Make it a flex container */
   flex-direction: column; /* Stack items vertically */
-  align-items: stretch; /* Stretch items to fill the width */
+  align-items: center; /* Stretch items to fill the width */
+}
+
+.select-message {
+  position: fixed;  /* Fixed positioning to keep it in place */
+  top: 5vh;  /* 5% from the bottom of the viewport */
+  font-size: 1.5vmax;  /* Responsive font size based on viewport width */
+  font-weight: bold;
+  color: #0d5fa2;  /* Blue color */
+  background-color: rgba(255, 255, 255, 0.7);  /* Semi-transparent background */
+  padding: 1.2vmin 2vmin;  /* Padding based on viewport height and width */
+  border-radius: 10px;  /* Rounded corners */
+  box-shadow: 0 0.2vmin 0.8vmin rgba(0, 0, 0, 0.2);  /* Subtle shadow effect */
 }
 
 .juzz-label {
   display: flex; /* Use flexbox for alignment */
   justify-content: space-between; /* Space between text and checkbox */
   align-items: center; /* Center items vertically */
-  width: calc(100% - 20px); /* Reduce width to leave space for left/right margins */
-  height: 8vh; /* Fixed height for each card */
-  margin: 5px 0px; /* Left and right margins for spacing within container */
-  padding: 10px; /* Inner padding */
-  border: 1px solid rgba(255, 255, 255, 0.6); /* Card border */
-  border-radius: 5px; /* Rounded corners */
+  width: 74vw; /* Reduce width to leave space for left/right margins */
+  height: 8vmin; /* Fixed height for each card */
+  padding: 1vmax; /* Inner padding */
+  border: 0.12vmax solid rgba(255, 255, 255, 0.6); /* Card border */
+  border-radius: 0.5vmax; /* Rounded corners */
   background-color: rgba(255, 255, 255, 0.2); /* Card background color */
   transition: background-color 0.3s; /* Smooth background change */
+  margin-top: 0.7vmin;
 }
 
 .juzz-label:hover {
@@ -327,11 +315,11 @@
   top: 50%;           /* Vertically center within the container */
   left: 50%;          /* Horizontally center within the container */
   transform: translate(-50%, -50%); /* Adjust to ensure the spinner is centered exactly at that position */
-  border: 4px solid rgba(255, 255, 255, 0.5); /* Light gray color */
-  border-top: 4px solid #333; /* Darker gray color for top border */
+  border: 0.5vmin solid rgba(255, 255, 255, 0.5); /* Light gray color */
+  border-top: 0.5vmin solid #333; /* Darker gray color for top border */
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 5vmin;
+  height: 5vmin;
   animation: spin 1s linear infinite;
   margin: auto;
 }
@@ -352,10 +340,10 @@
   width: 50vw;      /* Take up half of the screen's width */
   background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
   color: white;     /* Text color */
-  padding: 20px;    /* Add padding for spacing */
+  padding: 2vmax;    /* Add padding for spacing */
   box-sizing: border-box; /* Ensure padding doesn’t affect width */
   overflow-y: auto; /* Allow vertical scrolling if text is long */
-  border-radius: 10px; /* Optional: rounded corners for a softer look */
+  border-radius: 1vmax; /* Optional: rounded corners for a softer look */
   z-index: 10;      /* Make sure it's above other content */
   font-family: "Scheherazade New"; /* Use Arabic-friendly font */
   direction: rtl;   /* Right-to-left direction for Arabic text */
@@ -374,10 +362,10 @@
   background-size: cover;
   animation: fadeIn 0.8s ease-in forwards;
   color: white;     /* Text color */
-  padding: 20px;    /* Add padding for spacing */
+  padding: 2vmax;    /* Add padding for spacing */
   box-sizing: border-box; /* Ensure padding doesn’t affect width */
   overflow-y: auto; /* Allow vertical scrolling if text is long */
-  border-radius: 10px; /* Optional: rounded corners for a softer look */
+  border-radius: 1vmax; /* Optional: rounded corners for a softer look */
   z-index: 10;      /* Make sure it's above other content */
   font-family: "Scheherazade New"; /* Use Arabic-friendly font */
   direction: rtl;   /* Right-to-left direction for Arabic text */
@@ -394,10 +382,10 @@
   width: 50vw;      /* Take up half of the screen's width */
   background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
   color: white;     /* Text color */
-  padding: 20px;    /* Add padding for spacing */
+  padding: 2vmax;    /* Add padding for spacing */
   box-sizing: border-box; /* Ensure padding doesn’t affect width */
   overflow-y: auto; /* Allow vertical scrolling if text is long */
-  border-radius: 10px; /* Optional: rounded corners for a softer look */
+  border-radius: 1vmax; /* Optional: rounded corners for a softer look */
   z-index: 10;      /* Make sure it's above other content */
   font-family: "Scheherazade New"; /* Use Arabic-friendly font */
   direction: ltr;   /* Right-to-left direction for Arabic text */
@@ -412,6 +400,7 @@
   font-size: 0.9em; /* Adjust font size */
   line-height: 2.4; /* Adjust line height for readability */
   overflow-wrap: break-word; /* Ensure words break nicely within the container */
+  z-index: inherit;
 }
 
 .type-container {
@@ -426,7 +415,7 @@
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent dark background */
-  border-radius: 8px;
+  border-radius: 1vmax;
   box-sizing: border-box;
 }
 
@@ -435,9 +424,9 @@
   size: fixed;
   top: 10vh;               /* 10vh distance from the top of the screen */
   width: 45%;              /* Make the container occupy the right half of the screen */
-  height: 48px;
-  padding: 10px;
-  padding-top: 12px;
+  height: 6.5vh;
+  padding: 1.7vh;
+  padding-top: 1.7vh;
   font-family: "Scheherazade New";
   direction: rtl;          /* Right to left for Arabic input */
   z-index: 100;            /* Ensure it's on top of other content */
@@ -446,11 +435,11 @@
 .english-search-container {
   position: fixed;         /* Use fixed positioning to place it relative to the viewport */
   size: fixed;
-  top: 10vh;               /* 10vh distance from the top of the screen */
+  top: 11vh;               /* 10vh distance from the top of the screen */
   width: 45%;              /* Make the container occupy the right half of the screen */
-  height: 48px;
-  padding: 10px;
-  padding-top: 12px;
+  height: 6.5vh;
+  padding: 1.5vh;
+  padding-top: 1.2vh;
   font-family: "Scheherazade New";
   direction: ltr;          
   z-index: 100;            /* Ensure it's on top of other content */
@@ -458,8 +447,10 @@
 
 button.clear-button {
   position: absolute;
-  left: 20px; /* Position the button on the left side for RTL layout */
-  top: 55%; /* Vertically center the button */
+  left: 1.5vw; /* Position the button on the left side for RTL layout */
+  top: 5.8vh; /* Vertically center the button */
+  width: 4vh;
+  height: 4vh;
   transform: translateY(-50%); /* Adjust to make it truly centered */
   background: none;
   border: none;
@@ -472,8 +463,10 @@ button.clear-button {
 
 button.english-clear-button {
   position: absolute;
-  right: 20px; /* Position the button on the left side for RTL layout */
-  top: 55%; /* Vertically center the button */
+  right: 1.5vw; /* Position the button on the left side for RTL layout */
+  top: 5vh; /* Vertically center the button */
+  width: 4vh;
+  height: 4vh;
   transform: translateY(-50%); /* Adjust to make it truly centered */
   background: none;
   border: none;
@@ -485,14 +478,10 @@ button.english-clear-button {
 }
 
 button.clear-button svg {
-  width: 30px;
-  height: 30px;
   fill: #888; /* Change the color of the close icon */
 }
 
 button.english-clear-button svg {
-  width: 30px;
-  height: 30px;
   fill: #888; /* Change the color of the close icon */
 }
 
@@ -506,13 +495,13 @@ button.english-clear-button:hover svg {
 
 .search-container input {
   width: 100%;
-  height: 55px;
-  padding: 12px 20px;
-  padding-left: 44px; /* Add padding on the right for the clear button */
-  font-size: 16px;
-  border: 1px solid #ccc;
+  height: 8vh;
+  padding-right: 1vw;
+  padding-left: 5vw;
+  font-size: 0.7em;
+  border: 0.2vmin solid #ccc;
   font-family: "Scheherazade New";
-  border-radius: 8px;
+  border-radius: 0.5vmax;
   outline: none;
   background-color: #f9f9f9;
   box-sizing: border-box;
@@ -520,16 +509,17 @@ button.english-clear-button:hover svg {
 
 .english-search-container input {
   width: 100%;
-  height: 55px;
-  padding: 12px 20px;
-  padding-left: 20px; /* Add padding on the right for the clear button */
-  font-size: 16px;
-  border: 1px solid #ccc;
+  height: 8vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  font-size: 0.7em;
+  border: 0.2vmin solid #ccc;
   font-family: "Scheherazade New";
-  border-radius: 8px;
+  border-radius: 0.5vmax;
   outline: none;
   background-color: #f9f9f9;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .search-container input::placeholder {
@@ -555,8 +545,10 @@ button.english-clear-button:hover svg {
 /* Mic Button Styling */
 .mic-button {
   position: absolute;
-  left: 26px; /* Position the button on the left side for RTL layout */
-  top: 38%; /* Vertically center the button */
+  left: 2.2vw; /* Position the button on the left side for RTL layout */
+  top: 3.2vh; /* Vertically center the button */
+  width: 5.5vh;
+  height: 5.5vh;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -568,8 +560,6 @@ button.english-clear-button:hover svg {
 }
 
 .mic-button .mic-icon {
-  width: 3vh;
-  height: 3vh;
   fill: #888; /* Default gray */
   transition: fill 0.3s ease-in-out;
 }
@@ -585,8 +575,10 @@ button.english-clear-button:hover svg {
 
 .english-mic-button {
   position: absolute;
-  right: 40px; /* Position the button on the left side for RTL layout */
-  top: 38%; /* Vertically center the button */
+  right: 3.2vw; /* Position the button on the left side for RTL layout */
+  top: 2.2vh; /* Vertically center the button */
+  width: 5.5vh;
+  height: 5.5vh;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -598,8 +590,6 @@ button.english-clear-button:hover svg {
 }
 
 .english-mic-button .mic-icon {
-  width: 3vh;
-  height: 3vh;
   fill: #888; /* Default gray */
   transition: fill 0.3s ease-in-out;
 }
@@ -617,6 +607,7 @@ button.english-clear-button:hover svg {
   list-style-type: none;
   font-family: "Scheherazade New";
   margin: 0;
+  margin-top: 0.3vh;
   padding: 0;
   position: absolute;
   width: 100%;
@@ -625,19 +616,23 @@ button.english-clear-button:hover svg {
   top: 100%;
   left: 0;
   background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 10;
+  border: 0.2vmin solid #ddd;
+  border-radius: 0.5vmax;
+  box-shadow: 0 0.2vmax 0.4vmax rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.mobile-suggestions-list {
+  visibility: hidden;
 }
 
 .suggestions-list li {
-  padding: 10px;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 1.4vh;
+  border-bottom: 0.3vmin solid #f0f0f0;
   font-family: "Scheherazade New";
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-size: 16px;
+  font-size: 0.7em;
   line-height: 1.5;
   color: #333;
 }
@@ -665,7 +660,7 @@ button.english-clear-button:hover svg {
 .no-results {
   text-align: center;
   color: #999;
-  padding: 15px 0;
+  padding: 1.4vh 0;
   font-style: italic;
   font-family: "Scheherazade New";
 }
@@ -694,7 +689,11 @@ button.english-clear-button:hover svg {
   padding-top: 1.8vh;
   padding-right: 0px;
   background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent dark background */
-  border-radius: 8px;
+  border-radius: 1vmax;
+}
+
+.keyboard-container.hidden {
+  display: none;
 }
 
 .hangman-keyboard-container {
@@ -704,13 +703,27 @@ button.english-clear-button:hover svg {
   flex-direction: column; /* Stack rows vertically */
   position: fixed;
   bottom: 10vh;
-  width: 60vw; /* Full width of the screen */
+  width: 50vw; /* Full width of the screen */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Offset half the width */
   padding-top: 1.8vh;
   padding-right: 0px;
   background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent dark background */
-  border-radius: 8px;
+  border-radius: 1vmax;
+}
+
+.toggle-keyboard-btn {
+  margin: 1vh;
+  padding: 1vh 2vh;
+  font-size: 0.5em;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 1vmax;
+  cursor: pointer;
+  position: fixed;
+  left: 1vw;
+  bottom: 5vh;
 }
 
 .english-keyboard-container {
@@ -724,7 +737,11 @@ button.english-clear-button:hover svg {
   padding-top: 1.8vh;
   padding-right: 0px;
   background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent dark background */
-  border-radius: 8px;
+  border-radius: 1vmax;
+}
+
+.english-keyboard-container.hidden {
+  display: none;
 }
 
 /* Each row of keys */
@@ -737,6 +754,7 @@ button.english-clear-button:hover svg {
 
 /* Key Styling */
 .key {
+  position: relative;
   display: flex;
   align-items: center;
   font-family: "Scheherazade New";
@@ -744,14 +762,29 @@ button.english-clear-button:hover svg {
   background: linear-gradient(175deg, #003d73, #3a5fcd); /* Gradient background */
   color: white;
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 0.8vmax;
   padding: 1.2vh;
-  font-size: calc(10px + 1.5vmin); /* Responsive font size */
+  font-size: 0.9em; /* Responsive font size */
   height: 6vh; /* Suitable height for keyboard key */
   transition: background-color 0.3s ease, transform 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.6); /* White outline with slight transparency */
+  border: 0.15vmax solid rgba(255, 255, 255, 0.6); /* White outline with slight transparency */
   flex: 1; /* Let keys expand evenly within each row */
   max-width: 3.5vw; /* Limit the maximum width of each key */
+}
+
+.key.h {
+  font-size: 1.2em;
+}
+
+.key::after {
+  content: attr(data-translit);
+  position: absolute;
+  top: 0vh;
+  left: 0.42vw;
+  font-size: 0.5em;
+  direction: ltr;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
 }
 
 /* Hover effect for keys */
@@ -763,19 +796,6 @@ button.english-clear-button:hover svg {
 .key:active {
   transform: scale(0.85);  /* Slightly shrink the key when clicked */
   background-color: #032e54;  /* A darker color on click */
-}
-
-
-/* Adjust styling for smaller screens */
-@media (max-width: 768px) {
-  .key {
-    height: 6vh; /* Slightly smaller key height for narrow screens */
-    font-size: calc(8px + 1.5vmin);
-  }
-
-  .keyboard-container {
-    overflow-x: auto;
-  }
 }
 
 /* Override styles for space key */
@@ -790,15 +810,15 @@ button.english-clear-button:hover svg {
 
 .notification-container {
   position: fixed;
-  top: 20px;
-  padding: 6px 20px;
-  width: 40vw;
-  height: 4vh;
+  top: 3vh;
+  padding: 1vh 2vw;
+  width: 50vw;
+  height: 3vh;
   background-color: rgba(0, 0, 0, 0.7);
   color: #fff;
-  border-radius: 5px;
-  font-size: 15px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.7vmax;
+  font-size: 2.2vmin;
+  box-shadow: 0px 0.2vmin 0.3vmin rgba(0, 0, 0, 0.1);
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -812,11 +832,11 @@ button.english-clear-button:hover svg {
 }
 
 .close-button {
-  right: 20px;
+  right: 1vw;
   border: none;
   position: absolute;
-  border-radius: 5px;           /* Round corners */
-  font-size: 16px;
+  border-radius: 0.7vmax;           /* Round corners */
+  font-size: 3vmin;
   cursor: pointer;
   display: flex;
   align-items: right;
@@ -833,8 +853,8 @@ button.english-clear-button:hover svg {
 }
 
 .close-button svg {
-  width: 20px;       /* Adjust size of the close icon */
-  height: 20px;
+  width: 3vmin;       /* Adjust size of the close icon */
+  height: 3vmin;
   transition: fill 0.3s ease;
 }
 
@@ -850,10 +870,10 @@ button.english-clear-button:hover svg {
   padding: 1.8vh 2.6vw;
   background: linear-gradient(175deg, #0b3d25, #1f6d43); /* Green gradient */
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.9); /* White outline with slight transparency */
-  border-radius: 20px;
+  border: 0.2vmax solid rgba(255, 255, 255, 0.9); /* White outline with slight transparency */
+  border-radius: 3vmax;
   text-decoration: none;
-  font-size: clamp(14px, 1.5vw, 16px); /* Responsive font size */
+  font-size: 1.2vmax; /* Responsive font size */
   cursor: pointer;
 }
 
@@ -863,13 +883,14 @@ button.english-clear-button:hover svg {
 
 .score-wrapper {
   padding: 5vh 5vw;
+  height: 80vh;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2vw;
   backdrop-filter: blur(10px);
 }
 
 .score-display {
-  font-size: 5vw; /* Responsive size */
+  font-size: 8vmin; /* Responsive size */
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.2vw;
@@ -905,6 +926,16 @@ button.english-clear-button:hover svg {
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.selection-content.mcq {
+  margin-left: 1.75vw;
+  width: 90vw;
+}
+
+.juzz-label.mcq {
+  margin-left: 3.5vw;
+  width: 86vw;
 }
 
 /* Hangman */
@@ -1123,11 +1154,11 @@ button.english-clear-button:hover svg {
   display: flex;
   justify-content: center;
   margin-top: 0rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4vh;
 }
 
 .score-table {
-  font-size: 2rem; /* text-sm */
+  font-size: 5vh; /* text-sm */
   border-collapse: collapse;
 }
 
@@ -1143,4 +1174,300 @@ button.english-clear-button:hover svg {
 
 .score-table .value {
   color: #fff;
+}
+
+/* Slightly smaller height for phones */
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
+    gap: 2vmax;
+  }
+
+  .card {
+    height: 10vh; /* Smaller card height on narrow screens */
+    font-size: 2vmax;
+  }
+
+  .selection-content {
+    max-height: 75vh;
+  }
+
+  .key {
+    height: 6vh; /* Slightly smaller key height for narrow screens */
+    font-size: 3vmin;
+  }
+
+  .passage-container {
+    position: fixed;
+    width: 100vw;
+    top: 18vh;
+    height: 34.2vh;
+    z-index: 3;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+  }
+
+  .english-passage-container {
+    position: fixed;
+    width: 100vw;
+    top: 18vh;
+    height: 34.2vh;
+    z-index: 3;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+  }
+
+  .hangman-passage-container {
+    position: fixed;
+    width: 100vw;
+    top: 25.2vh;
+    height: 34.2vh;
+    z-index: 3;
+  }
+
+  .type-container {
+    width: 100vw;
+    z-index: 2;
+  }
+
+  .suggestions-list {
+    display: none;
+  }
+
+  .mobile-suggestions-list {
+    visibility: visible;
+    position: absolute;
+    top: 16.8vh;
+    margin: 0;
+    z-index: 100;
+    max-height: 34vh;
+    width: 96%;
+    margin-left: 2vw;
+    list-style-type: none;
+    font-family: "Scheherazade New";
+    margin-top: 0.2vh;
+    padding: 0;
+    overflow-y: auto;
+    left: 0;
+    background-color: #fff;
+    border: 0.2vmin solid #ddd;
+    border-radius: 0.5vmax;
+    box-shadow: 0 0.2vmax 0.4vmax rgba(0, 0, 0, 0.1);
+  }
+  
+  .mobile-suggestions-list li {
+    padding: 1.4vh;
+    border-bottom: 0.3vmin solid #f0f0f0;
+    font-family: "Scheherazade New";
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.7em;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  .mobile-suggestions-list li:last-child {
+    border-bottom: none;
+    font-family: "Scheherazade New";
+  }
+  
+  .mobile-suggestions-list li:hover {
+    background-color: #f0f0f0;
+    font-family: "Scheherazade New";
+  }
+  
+  .mobile-suggestions-list li p {
+    margin: 0;
+    font-family: "Scheherazade New";
+  }
+  
+  .mobile-suggestions-list.hidden {
+    display: none;
+    font-family: "Scheherazade New";
+  }
+
+  .search-container {
+    width: 95%;
+    padding-bottom: 0vh;
+    z-index: 100;
+  }
+
+  .english-search-container {
+    width: 95%;
+    padding-bottom: 0vh;
+    z-index: 100;
+  }
+
+  .search-container input {
+    height: 5vh;
+    padding-left: 8vw;
+  }
+
+  .english-search-container input {
+    height: 5vh;
+    padding-left: 8vw;
+  }
+
+  .keyboard-container {
+    width: 100vw;
+  }
+
+  .english-keyboard-container {
+    width: 100vw;
+  }
+
+  .key {
+    max-width: 8vw;
+  }
+
+  .Start-button {
+    bottom: 4vh;
+  }
+
+  button.clear-button {
+    left: 5vw; /* Position the button on the left side for RTL layout */
+    top: 4.4vh; /* Vertically center the button */
+    width: 2vh;
+    height: 2vh;
+  }
+
+  button.english-clear-button {
+    right: 5vw; /* Position the button on the left side for RTL layout */
+    top: 3.7vh; /* Vertically center the button */
+    width: 2vh;
+    height: 2vh;
+  }
+
+  /* Mic Button Styling */
+  .mic-button {
+    left: 7vw; /* Position the button on the left side for RTL layout */
+    top: 2.6vh; /* Vertically center the button */
+    width: 3.7vh;
+    height: 3.7vh;
+  }
+
+  .english-mic-button {
+    right: 7vw; /* Position the button on the left side for RTL layout */
+    top: 2vh; /* Vertically center the button */
+    width: 3.7vh;
+    height: 3.7vh;
+  }
+
+  .notification-container {
+    width: 75vw;
+    height: 2vh;
+  }
+
+  .score-table {
+    font-size: 1rem;
+  }
+
+  .juzz-label.mcq {
+    height: 12vh;
+  }
+
+  .blanked {
+    top: 3vh;
+  }
+
+  /* Hangman */
+  .pole {
+    left: 12vw;
+  }
+
+  .beam {
+    top: 0vh;
+    left: 12vw;
+    width: 39.5vw;
+  }
+
+  .rope {
+    height: 2vh;
+  }
+
+  /* Body parts */
+  .head {
+    top: 3vh;
+    width: 7vh;
+    height: 7vh;
+  }
+
+  .body {
+    top: 5vh;
+    width: 2vh;
+    border-left: 2vh solid transparent;   /* half of bottom width */
+    border-right: 2vh solid transparent;  /* same */
+    border-bottom: 19vh solid white;        /* thawb body */
+    border-radius: 1vh;
+  }
+
+  .left-arm-upper {
+    top: 11vh;
+    left: calc(50% - 3.6vh); /* adjust this distance from center */
+    width: 1vh;
+    height: 5vh;
+  }
+
+  .left-arm-lower {
+    position: absolute;
+    top: 14.8vh;
+    left: calc(50% - 6vh); /* adjust this distance from center */
+    width: 1vh;
+    height: 4vh;
+  }
+
+  .left-arm-hand {
+    top: 18vh;
+    left: calc(50% - 7vh); /* adjust this distance from center */
+    width: 1vh;
+    height: 1.5vh;
+  }
+
+  .right-arm-upper {
+    top: 11vh;
+    left: calc(50% + 2.6vh); /* adjust this distance from center */
+    width: 1vh;
+    height: 5vh;
+  }
+
+  .right-arm-lower {
+    position: absolute;
+    top: 14.8vh;
+    left: calc(50% + 5vh); /* adjust this distance from center */
+    width: 1vh;
+    height: 4vh;
+  }
+
+  .right-arm-hand {
+    top: 18vh;
+    left: calc(50% + 5.6vh); /* adjust this distance from center */
+    width: 1vh;
+    height: 1.5vh;
+  }
+
+  .left-shin {
+    top: 21vh;
+    left: calc(50% - 2.2vh); /* adjust this distance from center */
+    width: 1vh;
+    height: 5vh;
+  }
+
+  .left-shoe {
+    top: 26vh;
+    left: calc(50% - 2.72vh); /* adjust this distance from center */
+    width: 2.5vh;
+    height: 1.5vh;
+  }
+
+  .right-shin {
+    top: 21vh;
+    left: calc(50% + 0.8vh); /* adjust this distance from center */
+    width: 1vh;
+    height: 5vh;
+  }
+
+  .right-shoe {
+    top: 26vh;
+    left: calc(50% + 0.33vh); /* adjust this distance from center */
+    width: 2.5vh;
+    height: 1.5vh;
+  }
 }

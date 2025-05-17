@@ -54,7 +54,7 @@ function ArabicSetup() {
         <div>
         {/* Floating Instructions Button */}
           <button className="instructions-button" onClick={() => setIsOpen(true)}>
-            ℹ️ Instructions
+            ℹ️Instructions
           </button>
 
           {/* Overlay + Modal */}
@@ -79,7 +79,7 @@ function ArabicSetup() {
           )}
         </div>
 
-        <h2>Select the Juzz you would like to be tested on</h2>
+        <h2 className='select-message'>Select the Juzz you would like to be tested on</h2>
 
         {/* Conditionally render content based on selected option */}
         <div className="selection-content">

@@ -44,6 +44,7 @@ function EnglishQuestions() {
   const [notification, setNotification] = useState(''); // Display messages  
 
   const timeoutRef = useRef(null);
+  const language = useRef("en-GB");
 
   const location = useLocation(); // Get the current location
   const { selectedJuzz } = location.state || { selectedJuzz: [] }; // Destructure selectedJuzz from state
@@ -593,8 +594,9 @@ function EnglishQuestions() {
   const handleSearch = (input) => {
     setSearchText(input);
   
-    const suggestionsElement = document.getElementById("suggestions");
-  
+    const isMobile = window.innerWidth <= 768;
+    const suggestionsElement = document.getElementById(isMobile ? "suggestions2" : "suggestions");
+
     // Hide suggestions if input is less than 3 characters
     if (input.trim().length < 3) {
       console.log("Input is less than 3 characters. Hiding suggestions.");
@@ -682,7 +684,7 @@ function EnglishQuestions() {
       return;
     }
     const recognition = new window.webkitSpeechRecognition();
-    recognition.lang = "ar-SA"; // Language
+    recognition.lang = language.current;
     recognition.continuous = false;
     recognition.interimResults = false;
     recognition.onstart = () => {
@@ -714,6 +716,7 @@ function EnglishQuestions() {
 
   const handleNextQuestion = () => {
     if (currentQuestionRef.current < 3) {
+      handleClear();
       const newValue = currentQuestionRef.current + 1;
       currentQuestionRef.current = newValue;
       setCurrentQuestion(newValue);
@@ -749,6 +752,39 @@ function EnglishQuestions() {
       });
     }
   };
+
+  const toggleKeyboard = () => {
+    const arabicKeyboard = document.querySelector(".keyboard-container");
+    const englishKeyboard = document.querySelector(".english-keyboard-container");
+    const button = document.querySelector(".toggle-keyboard-btn");
+  
+    if (arabicKeyboard && englishKeyboard && button) {
+      const isArabicHidden = arabicKeyboard.classList.contains("hidden");
+  
+      // Toggle visibility
+      arabicKeyboard.classList.toggle("hidden");
+      englishKeyboard.classList.toggle("hidden");
+  
+      // Update button label
+      button.textContent = isArabicHidden ? "Switch to English" : "Switch to Arabic";
+      language.current = isArabicHidden ? "ar-SA" : "en-GB";
+    }
+  };
+  
+    // Use useEffect to manage event listener once when component mounts
+    useEffect(() => {
+      if (completedPassage) return;
+  
+      const suggestionsElement = document.getElementById("suggestions2");
+  
+      // Attach event listener on mount
+      suggestionsElement.addEventListener("click", ayahItemClickHandler);
+  
+      // Cleanup event listener on unmount
+      return () => {
+        suggestionsElement.removeEventListener("click", ayahItemClickHandler);
+      };
+    }, [completedPassage]); // Empty dependency array ensures this effect runs only once when the component mounts  
 
    // Use useEffect to manage event listener once when component mounts
    useEffect(() => {
@@ -846,7 +882,7 @@ function EnglishQuestions() {
               type="text"
               id="search-input"
               value={searchText}
-              placeholder="Please search for the translation of an Ayah or recite the Arabic"
+              placeholder="Please search in English or Arabic for the next Ayah"
               onChange={(e) => handleSearch(e.target.value)}
             />
             <button 
@@ -858,6 +894,72 @@ function EnglishQuestions() {
               </svg>
             </button>
             <ul className="suggestions-list hidden" id="suggestions"></ul>
+          </div>
+          <button onClick={toggleKeyboard} className="toggle-keyboard-btn">
+            Switch to Arabic
+          </button>
+          <div className="keyboard-container hidden">
+            {/* Keyboard */}
+            <div className="keyboard-row">
+              {/* Row 1 */}
+              <button className="key">ج</button>
+              <button className="key">ح</button>
+              <button className="key">خ</button>
+              <button className="key">ه</button>
+              <button className="key">ع</button>
+              <button className="key">غ</button>
+              <button className="key">ف</button>
+              <button className="key">ق</button>
+              <button className="key">ث</button>
+              <button className="key">ص</button>
+              <button className="key">ض</button>
+            </div>
+            <div className="keyboard-row">
+              {/* Row 2 */}
+              <button className="key">ة</button>
+              <button className="key">ك</button>
+              <button className="key">م</button>
+              <button className="key">ن</button>
+              <button className="key">ت</button>
+              <button className="key">ا</button>
+              <button className="key">ل</button>
+              <button className="key">ب</button>
+              <button className="key">ي</button>
+              <button className="key">س</button>
+              <button className="key">ش</button>
+            </div>
+            <div className="keyboard-row">
+              {/* Row 3 */}
+              <button className="key">ى</button>
+              <button className="key">و</button>
+              <button className="key">ر</button>
+              <button className="key">ز</button>
+              <button className="key">د</button>
+              <button className="key">ذ</button>
+              <button className="key">ط</button>
+              <button className="key">ظ</button>
+              <button className="key">ء</button>
+            </div>
+            <div className="keyboard-row">
+              {/* Row 4 */}
+              <button className="key">أ</button>
+              <button className="key">إ</button>
+              <button className="key">آ</button>
+              <button className="key">ؤ</button>
+              <button className="key">ئ</button>
+            </div>
+            <div className="keyboard-row">
+              {/* Row 4 */}
+              <button className="key">ۖ</button>
+              <button className="key">ۗ</button>
+              <button className="key">ۘ</button>
+              <button className="key">ۙ</button>
+              <button className="key">ۚ</button>
+              <button className="key">ۛ</button>
+              <button className="key">ۜ</button>
+              <button className="key space">مسافة</button>
+              <button className="key backspace">⌦</button>
+            </div>
           </div>
           <div className="english-keyboard-container">
             {/* Keyboard */}
@@ -911,6 +1013,7 @@ function EnglishQuestions() {
             </div>
           </div>
         </div>
+        <ul className="mobile-suggestions-list hidden" id="suggestions2"></ul>
 
         <div className="english-passage-container">
         {loading && <div className="loading-spinner"></div>}

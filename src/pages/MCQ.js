@@ -3,30 +3,155 @@ import { Link } from 'react-router-dom';
 
 const questions = [
   {
-    question: "What is the longest Surah in the Qur'an?",
-    options: ["Surah Baqarah", "Surah Ali Imran", "Surah Kahf", "Surah Yasin"],
-    answer: "Surah Baqarah"
+    question: "Who was the first prophet mentioned in the Quran?",
+    options: ["Prophet Nuh", "Prophet Adam", "Prophet Musa", "Prophet Ibrahim"],
+    answer: "Prophet Adam"
   },
   {
-    question: "How many Surahs are there in the Qur'an?",
+    question: "In which month was the Quran revealed?",
+    options: ["Shaban", "Rajab", "Ramadan", "Muharram"],
+    answer: "Ramadan"
+  },
+  {
+    question: "Which of these is not a miracle of Prophet Isa (Jesus)?",
+    options: ["Speaking in the cradle", "Healing the blind", "Parting the sea", "Raising the dead"],
+    answer: "Parting the sea"
+  },
+  {
+    question: "How much inheritance does a husband receive from his wife if she has no children?",
+    options: ["One-fourth", "One-third", "One-half", "All of it"],
+    answer: "One-half"
+  },
+  {
+    question: "Which group is in the lowest depths of Hell?",
+    options: ["Disbelievers", "Hypocrites", "Murderers", "Arrogant people"],
+    answer: "Hypocrites"
+  },
+  {
+    question: "Which of these is NOT a Fardh (obligatory) act of Wudu?",
+    options: ["Washing the feet", "Wiping the head", "Washing the face", "Saying Bismillah"],
+    answer: "Saying Bismillah"
+  },
+  {
+    question: "Which heavenly body did Prophet Ibrahim NOT mention when rejecting false gods?",
+    options: ["Stars", "Moon", "Sun", "Clouds"],
+    answer: "Clouds"
+  },
+  {
+    question: "Which prophet's people killed the she-camel sent as a sign?",
+    options: ["Prophet Hud", "Prophet Salih", "Prophet Shu'ayb", "Prophet Nuh"],
+    answer: "Prophet Salih"
+  },
+  {
+    question: "What was the first major battle in Islam?",
+    options: ["Battle of Uhud", "Battle of Badr", "Battle of Khandaq", "Battle of Hunayn"],
+    answer: "Battle of Badr"
+  },
+  {
+    question: "What is the other major battle mentioned by name in the Quran",
+    options: ["Battle of Tabuk", "Battle of Hunayn", "Battle of Badr", "Battle of Uhud"],
+    answer: "Battle of Tabuk"
+  },
+  {
+    question: "Whose body has been preserved as a sign for later generations?",
+    options: ["Pharaoh", "Qarun", "Haman", "Abu Lahab"],
+    answer: "Pharaoh"
+  },
+  {
+    question: "Which prophet has the best of stories narrated in the Quran?",
+    options: ["Prophet Yusuf", "Prophet Musa", "Prophet Isa", "Prophet Dawud"],
+    answer: "Prophet Yusuf"
+  },
+  {
+    question: "What brings reassurance to the hearts?",
+    options: ["Prayer", "Sadaqah", "Remembrance of Allah", "Reciting the Quran"],
+    answer: "Remembrance of Allah"
+  },
+  {
+    question: "How many gates does Jahannam (Hell) have?",
+    options: ["5", "6", "7", "8"],
+    answer: "7"
+  },
+  {
+    question: "Where did the Prophet ﷺ go during the Isra' (Night Journey)?",
+    options: ["Al-Masjid al-Haram", "Mount Hira", "Al-Masjid al-Aqsa", "Mount Sinai"],
+    answer: "Al-Masjid al-Aqsa"
+  },
+  {
+    question: "Which prophet spoke while still a baby?",
+    options: ["Prophet Yahya", "Prophet Isa", "Prophet Musa", "Prophet Ibrahim"],
+    answer: "Prophet Isa"
+  },
+  {
+    question: "Who is known as Dhun-Noon in the Quran?",
+    options: ["Prophet Yusuf", "Prophet Yunus", "Prophet Hud", "Prophet Idris"],
+    answer: "Prophet Yunus"
+  },
+  {
+    question: "What is the highest level of Paradise called?",
+    options: ["Al-Firdaws", "Jannat al-Na'im", "Jannat al-Khuld", "Dar al-Salam"],
+    answer: "Al-Firdaws"
+  },
+  {
+    question: "Who is referred to as 'Ar-Ruh al-Amin' (The Trustworthy Spirit)?",
+    options: ["Angel Jibreel", "Angel Mikaeel", "Angel Israfeel", "The Prophet ﷺ"],
+    answer: "Angel Jibreel"
+  },
+  {
+    question: "Which city did Prophet Musa escape to after killing a man?",
+    options: ["Makkah", "Madyan", "Jerusalem", "Tih"],
+    answer: "Madyan"
+  },
+  {
+    question: "How did the Muslims defend themselves during the Battle of Ahzab?",
+    options: ["By ambushing", "With a trench", "Using archers", "Mountain retreat"],
+    answer: "With a trench"
+  },
+  {
+    question: "Which Surah is known as the 'Heart of the Quran'?",
+    options: ["Surah Al-Fatiha", "Surah Al-Kahf", "Surah Ar-Rahman", "Surah Yasin"],
+    answer: "Surah Yasin"
+  },
+  {
+    question: "Which prophet returned to his nation of 100,000 or more believers?",
+    options: ["Prophet Nuh", "Prophet Yunus", "Prophet Musa", "Prophet Shu'ayb"],
+    answer: "Prophet Yunus"
+  },
+  {
+    question: "How many gates does Jannah (Paradise) have?",
+    options: ["5", "6", "7", "8"],
+    answer: "8"
+  },
+  {
+    question: "On the Day of Judgement, every nation will be seen doing what?",
+    options: ["Flying", "Running", "Kneeling", "Hiding"],
+    answer: "Kneeling"
+  },
+  {
+    question: "Which treaty was signed between the Muslims and the Makkans?",
+    options: ["Treaty of Uhud", "Treaty of Khandaq", "Treaty of Hudaybiyyah", "Treaty of Hijrah"],
+    answer: "Treaty of Hudaybiyyah"
+  },
+  {
+    question: "How many times is the verse 'Which of your Lord's favours will you deny?' repeated in Surah Ar-Rahman?",
+    options: ["31", "7", "26", "10"],
+    answer: "31"
+  },
+  {
+    question: "What is the most disliked permissible act in Islam?",
+    options: ["Eating too much", "Excessive talking", "Divorce", "Debt"],
+    answer: "Divorce"
+  },
+  {
+    question: "In which hand will the righteous receive their book of deeds?",
+    options: ["Right", "Left", "Both", "Behind their backs"],
+    answer: "Right"
+  },
+  {
+    question: "How many Surahs are there in the Quran?",
     options: ["112", "113", "114", "115"],
     answer: "114"
-  },
-  {
-    question: "What language is the Qur'an revealed in?",
-    options: ["Hebrew", "Persian", "Arabic", "Urdu"],
-    answer: "Arabic"
-  },
-  {
-    question: "Who was the first prophet mentioned in the Qur'an?",
-    options: ["Nuh", "Adam", "Musa", "Ibrahim"],
-    answer: "Adam"
-  },
-  {
-    question: "Which Surah has no Bismillah?",
-    options: ["Surah Tawbah", "Surah Fatihah", "Surah Ikhlas", "Surah Qadr"],
-    answer: "Surah Tawbah"
-  },
+  }
 ];
 
 function MCQ() {
@@ -63,7 +188,7 @@ function MCQ() {
         <div>
         {/* Floating Instructions Button */}
           <button className="instructions-button" onClick={() => setIsOpen(true)}>
-            ℹ️ Instructions
+            ℹ️Instructions
           </button>
 
           {/* Overlay + Modal */}
@@ -73,7 +198,7 @@ function MCQ() {
                 <h2>Game Instructions</h2>
                 <p style={{ textAlign: "left" }}>
                   - Read the questions carefully. <br /><br />
-                  - Answer all five questions. <br /><br />
+                  - Answer all 30 questions. <br /><br />
                   - There is no timer, this is just for fun. <br /><br />
                   - Click "Next" to proceed. <br /><br />
                   - Let's see what you can do.
@@ -91,13 +216,13 @@ function MCQ() {
         {!showResults ? (
           <div>
             <h2>Question {currentQuestion + 1}</h2>
-            <div className="selection-content">
+            <div className="selection-content mcq">
               {questions[currentQuestion].question}
             </div>
 
             {questions[currentQuestion].options.map((option, index) => (
               <div>
-                <label key={index} className="juzz-label">
+                <label key={index} className="juzz-label mcq">
                 {option}
                   <input
                     type="radio"

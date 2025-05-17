@@ -729,8 +729,9 @@ const handleSearch = (input) => {
   input = transliterateToArabic(input);
   setSearchText(input);
 
-  const suggestionsElement = document.getElementById("suggestions");
-
+  const isMobile = window.innerWidth <= 768;
+  const suggestionsElement = document.getElementById(isMobile ? "suggestions2" : "suggestions");
+  
   // Hide suggestions if input is less than 3 characters
   if (input.trim().length < 3) {
     console.log("Input is less than 3 characters. Hiding suggestions.");
@@ -886,6 +887,7 @@ const handleSearch = (input) => {
 
   const handleNextQuestion = () => {
     if (currentQuestionRef.current < 3) {
+      handleClear();
       const newValue = currentQuestionRef.current + 1;
       currentQuestionRef.current = newValue;
       setCurrentQuestion(newValue);
@@ -927,6 +929,21 @@ const handleSearch = (input) => {
     if (completedPassage) return;
 
     const suggestionsElement = document.getElementById("suggestions");
+
+    // Attach event listener on mount
+    suggestionsElement.addEventListener("click", ayahItemClickHandler);
+
+    // Cleanup event listener on unmount
+    return () => {
+      suggestionsElement.removeEventListener("click", ayahItemClickHandler);
+    };
+  }, [completedPassage]); // Empty dependency array ensures this effect runs only once when the component mounts
+
+  // Use useEffect to manage event listener once when component mounts
+  useEffect(() => {
+    if (completedPassage) return;
+
+    const suggestionsElement = document.getElementById("suggestions2");
 
     // Attach event listener on mount
     suggestionsElement.addEventListener("click", ayahItemClickHandler);
@@ -1035,51 +1052,51 @@ const handleSearch = (input) => {
             {/* Keyboard */}
             <div className="keyboard-row">
               {/* Row 1 */}
-              <button className="key">ج</button>
-              <button className="key">ح</button>
-              <button className="key">خ</button>
-              <button className="key">ه</button>
-              <button className="key">ع</button>
-              <button className="key">غ</button>
-              <button className="key">ف</button>
-              <button className="key">ق</button>
-              <button className="key">ث</button>
-              <button className="key">ص</button>
-              <button className="key">ض</button>
+              <button className="key" data-translit="j">ج</button>
+              <button className="key" data-translit="H">ح</button>
+              <button className="key" data-translit="H.">خ</button>
+              <button className="key" data-translit="h">ه</button>
+              <button className="key" data-translit="A">ع</button>
+              <button className="key" data-translit="g">غ</button>
+              <button className="key" data-translit="f">ف</button>
+              <button className="key" data-translit="q">ق</button>
+              <button className="key" data-translit="t.">ث</button>
+              <button className="key" data-translit="S">ص</button>
+              <button className="key" data-translit="D">ض</button>
             </div>
             <div className="keyboard-row">
               {/* Row 2 */}
-              <button className="key">ة</button>
-              <button className="key">ك</button>
-              <button className="key">م</button>
-              <button className="key">ن</button>
-              <button className="key">ت</button>
-              <button className="key">ا</button>
-              <button className="key">ل</button>
-              <button className="key">ب</button>
-              <button className="key">ي</button>
-              <button className="key">س</button>
-              <button className="key">ش</button>
+              <button className="key" data-translit="h.">ة</button>
+              <button className="key" data-translit="k">ك</button>
+              <button className="key" data-translit="m">م</button>
+              <button className="key" data-translit="n">ن</button>
+              <button className="key" data-translit="t">ت</button>
+              <button className="key" data-translit="a">ا</button>
+              <button className="key" data-translit="l">ل</button>
+              <button className="key" data-translit="b">ب</button>
+              <button className="key" data-translit="y">ي</button>
+              <button className="key" data-translit="s">س</button>
+              <button className="key" data-translit="s.">ش</button>
             </div>
             <div className="keyboard-row">
               {/* Row 3 */}
-              <button className="key">ى</button>
-              <button className="key">و</button>
-              <button className="key">ر</button>
-              <button className="key">ز</button>
-              <button className="key">د</button>
-              <button className="key">ذ</button>
-              <button className="key">ط</button>
-              <button className="key">ظ</button>
-              <button className="key">ء</button>
+              <button className="key" data-translit="y.">ى</button>
+              <button className="key" data-translit="w">و</button>
+              <button className="key" data-translit="r">ر</button>
+              <button className="key" data-translit="z">ز</button>
+              <button className="key" data-translit="d">د</button>
+              <button className="key" data-translit="d.">ذ</button>
+              <button className="key" data-translit="T">ط</button>
+              <button className="key" data-translit="Z">ظ</button>
+              <button className="key" data-translit="x">ء</button>
             </div>
             <div className="keyboard-row">
               {/* Row 4 */}
-              <button className="key">أ</button>
-              <button className="key">إ</button>
-              <button className="key">آ</button>
-              <button className="key">ؤ</button>
-              <button className="key">ئ</button>
+              <button className="key" data-translit="a-">أ</button>
+              <button className="key" data-translit="i">إ</button>
+              <button className="key" data-translit="aa">آ</button>
+              <button className="key" data-translit="w-">ؤ</button>
+              <button className="key" data-translit="y-">ئ</button>
             </div>
             <div className="keyboard-row">
               {/* Row 4 */}
@@ -1095,6 +1112,7 @@ const handleSearch = (input) => {
             </div>
           </div>
         </div>
+        <ul className="mobile-suggestions-list hidden" id="suggestions2"></ul>
 
         <div className="passage-container">
         {loading && <div className="loading-spinner"></div>}
