@@ -534,8 +534,8 @@ button.english-clear-button:hover svg {
   background-color: #f9f9f9;
   box-sizing: border-box;
   text-align: center;
-  direction: auto;          
-  unicode-bidi: isolate;
+  direction: ltr;          
+  unicode-bidi: plaintext;
 }
 
 .search-container input::placeholder {
