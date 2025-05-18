@@ -234,6 +234,7 @@ body {
   font-size: 1vmax;
   width: 9vmax;
   z-index: 10000;
+  overflow: visible;
 }
 
 .popup-close-button2:hover {
