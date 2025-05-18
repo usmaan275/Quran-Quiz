@@ -54,7 +54,7 @@ function ArabicSetup() {
         <div>
         {/* Floating Instructions Button */}
           <button className="instructions-button" onClick={() => setIsOpen(true)}>
-            ℹ️ Instructions
+            ℹ️Instructions
           </button>
 
           {/* Overlay + Modal */}

@@ -190,12 +190,16 @@ function MCQ() {
         <div>
         {/* Floating Instructions Button */}
           <button className="instructions-button" onClick={() => setIsOpen(true)}>
-            {showResults ? '📈 Review' : 'ℹ️ Instructions'}
+            {showResults ? '📈Review' : 'ℹ️Instructions'}
           </button>
 
           {/* Overlay + Modal */}
           {isOpen && (
             <div className="overlay">
+              {/* Close Button */}
+              <button className="popup-close-button" onClick={() => setIsOpen(false)}>
+                ✖
+              </button>
               <div className="popup">
                 {!showResults ? (
                   <>
@@ -229,11 +233,6 @@ function MCQ() {
                     <p>Can you do better next time?</p>
                   </>
                 )}
-
-                {/* Close Button */}
-                <button className="popup-close-button" onClick={() => setIsOpen(false)}>
-                  ✖
-                </button>
               </div>
             </div>
           )}
