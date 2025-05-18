@@ -854,7 +854,7 @@ function EnglishQuestions() {
     <div>
       <header className="App-header">
         <Link to="/home" className="Back-button">
-          Back
+          Home
         </Link>
 
         {/* Timer Display */}

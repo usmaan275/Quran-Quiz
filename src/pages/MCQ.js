@@ -184,7 +184,7 @@ function MCQ() {
     <div>
       <header className="App-header">
         <Link to="/home" className="Back-button">
-          Back
+          Home
         </Link>
 
         <div>
@@ -270,7 +270,7 @@ function MCQ() {
           <div>
             <h2>Quiz Complete!</h2>
             <p style={{ fontWeight: 'bold' }}>Your score: {score} / {questions.length}</p>
-            <p style={{ fontSize: '2vmin' }}>Check the top left!</p>
+            <p style={{ fontSize: '2vmin' }}>Check the top right!</p>
             <Link to="/home">
               <button className="Start-button">Back to Home</button>
             </Link>
