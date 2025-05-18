@@ -255,8 +255,8 @@ function MCQ() {
 
               {/* Overlay + Modal */}
               {isOpen && (
-                <div className="overlay2">
-                  <div className="popup2">
+                <div className="overlay">
+                  <div className="popup">
                     <h2>Questions</h2>
                     {questions.map((q, index) => {
                       const isCorrect = correctAnswers.includes(index);
@@ -273,12 +273,11 @@ function MCQ() {
                         </p>
                       );
                     })}
-
+                    <p>Can you do better next time?</p>
                     {/* Close Button */}
-                    <button className="popup-close-button2" onClick={() => setIsOpen(false)}>
+                    <button className="popup-close-button" onClick={() => setIsOpen(false)}>
                       ✖
                     </button>
-                    <p>Can you do better next time?</p>
                   </div>
                 </div>
               )}
