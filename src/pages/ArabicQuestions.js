@@ -869,6 +869,8 @@ const handleSearch = (input) => {
     };
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
+      // Clean up any hidden directional characters
+      transcript = transcript.replace(/[\u200E\u200F\u202A-\u202E]/g, '');
       setSearchText((prev) => {
         const updatedText = prev === '' ? prev + transcript : prev + " " + transcript;
         handleSearch(updatedText);

@@ -454,7 +454,7 @@ body {
   padding: calc(var(--vh) * 1.7);
   padding-top: calc(var(--vh) * 1.7);
   font-family: "Scheherazade New";
-  direction: ltr;          
+  direction: auto;          
   z-index: 100;            /* Ensure it's on top of other content */
 }
 
@@ -533,6 +533,8 @@ button.english-clear-button:hover svg {
   background-color: #f9f9f9;
   box-sizing: border-box;
   text-align: center;
+  direction: auto;          
+  unicode-bidi: isolate;
 }
 
 .search-container input::placeholder {
