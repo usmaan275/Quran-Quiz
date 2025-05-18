@@ -244,9 +244,6 @@ function MCQ() {
           </div>
         ) : (
           <div>
-            <h2>Quiz Complete!</h2>
-            <p style={{ fontWeight: 'bold' }}>Your score: {score} / {questions.length}</p>
-            <p style={{ fontSize: '2vmin' }}>Check the top left!</p>
             <div>
             {/* Floating Instructions Button */}
               <button className="instructions-button" onClick={() => setIsOpen(true)}>
@@ -282,6 +279,9 @@ function MCQ() {
                 </div>
               )}
             </div>
+            <h2>Quiz Complete!</h2>
+            <p style={{ fontWeight: 'bold' }}>Your score: {score} / {questions.length}</p>
+            <p style={{ fontSize: '2vmin' }}>Check the top left!</p>
             <Link to="/home">
               <button className="Start-button">Back to Home</button>
             </Link>
