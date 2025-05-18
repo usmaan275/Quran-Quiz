@@ -246,7 +246,7 @@ function MCQ() {
           <div>
             <div>
             {/* Floating Instructions Button */}
-              <button className="instructions-button" onClick={() => setIsOpen(true)}>
+              <button className="instructions-button2" onClick={() => setIsOpen(true)}>
               📈Review
               </button>
 
@@ -272,7 +272,7 @@ function MCQ() {
                     })}
                     <p>Can you do better next time?</p>
                     {/* Close Button */}
-                    <button className="popup-close-button" onClick={() => setIsOpen(false)}>
+                    <button className="popup-close-button2" onClick={() => setIsOpen(false)}>
                       ✖
                     </button>
                   </div>

@@ -200,6 +200,46 @@ body {
   background: rgb(112, 4, 4); /* Darker red on hover */
 }
 
+/* Floating Instructions Button */
+.instructions-button2 {
+  position: fixed;
+  top: calc(var(--vh) * 2);
+  right: 1vmax;
+  padding: 1vmin 1.5vmin;
+  width: 9vmax;
+  background: linear-gradient(175deg, #004c78, #4d90cc); /* Blue gradient */
+  color: white;
+  border: 0.3vmin solid rgba(255, 255, 255, 0.6);
+  border-radius: 0.5vmax;  color: white;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  font-size: 1vmax; /* Responsive font size */
+}
+
+.instructions-button2:hover {
+  background: #002f4b;
+}
+
+.popup-close-button2 {
+  position: fixed;
+  top: calc(var(--vh) * 10);
+  right: 1vmax;
+  background: red; /* Keep the red color */
+  color: white;
+  border: 0.3vmin solid rgba(255, 255, 255, 0.6);
+  border-radius: 0.5vmax;  color: white;
+  padding: 1vmin 1.5vmin;
+  cursor: pointer;
+  font-size: 1vmax;
+  width: 9vmax;
+  z-index: 10000;
+}
+
+.popup-close-button2:hover {
+  background: rgb(112, 4, 4); /* Darker red on hover */
+}
+
 /* Start button styling */
 .Start-button {
   position: fixed;             /* Fix position to viewport bottom */
