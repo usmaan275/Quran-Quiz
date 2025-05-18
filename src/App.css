@@ -1328,14 +1328,14 @@ button.english-clear-button:hover svg {
   }
 
   .search-container input {
-    font-size: calc(var(--vh) * 2.5);
+    font-size: calc(var(--vh) * 2.6);
     height: calc(var(--vh) * 7);
     padding-right: 3vw;
     padding-left: 18vw;
   }
 
   .english-search-container input {
-    font-size: calc(var(--vh) * 2.5);
+    font-size: calc(var(--vh) * 2.6);
     height: calc(var(--vh) * 7);
     padding-right: 18vw;
     padding-left: 18vw;
