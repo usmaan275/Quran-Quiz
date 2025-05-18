@@ -64,6 +64,7 @@ function EnglishSetup() {
                 <h2>Game Instructions</h2>
                 <p style={{ textAlign: "left" }}>
                   - Read the passage carefully. <br /><br />
+                  - Guess the next Ayah (marked in blue). <br /><br />
                   - Answer all three questions. <br /><br />
                   - Timer will keep running until completion. <br /><br />
                   - Click "Next" to proceed. <br /><br />

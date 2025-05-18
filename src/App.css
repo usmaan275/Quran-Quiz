@@ -1,3 +1,16 @@
+/* App.css */
+
+html,
+body {
+  height: 80%;
+  margin: 0;
+  padding: 0;
+  background: black;
+  background-attachment: fixed; /* optional */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .App {
   text-align: center;
   /* Remove overflow hidden here if you want the page to scroll as needed */
@@ -7,7 +20,7 @@
   transition: 0.3s;
   background: linear-gradient(175deg, #2e004f, #5c007a);
   box-shadow: inset 0 0 calc(var(--vh) * 2) #000000, inset 0 0 calc(var(--vh) * 2) #000000;
-  min-height: calc(var(--vh) * 100);
+  min-height: calc(var(--vh) * 99.99);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -773,7 +786,7 @@ button.english-clear-button:hover svg {
 }
 
 .key.h {
-  font-size: 1.2em;
+  font-size: 1.4vmax;
 }
 
 .key::after {
@@ -925,6 +938,11 @@ button.english-clear-button:hover svg {
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.mcq-question {
+  margin-top: calc(var(--vh) * -3);
+  margin-bottom: calc(var(--vh) * -2);
 }
 
 .selection-content.mcq {
@@ -1207,7 +1225,7 @@ button.english-clear-button:hover svg {
   }
 
   .key.h {
-    font-size: 1.1em;
+    font-size: 2.2vmax;
   }
 
   .passage-container {

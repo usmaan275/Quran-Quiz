@@ -160,6 +160,7 @@ function MCQ() {
   const [selectedOption, setSelectedOption] = useState('');
   const [showResults, setShowResults] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [correctAnswers, setCorrectAnswers] = useState([]);
 
   useEffect(() => {
     document.title = "Multiple Choice Quiz";
@@ -168,6 +169,7 @@ function MCQ() {
   const handleSubmit = () => {
     if (selectedOption === questions[currentQuestion].answer) {
       setScore(score + 1);
+      setCorrectAnswers(prev => [...prev, currentQuestion]);
     }
 
     if (currentQuestion + 1 < questions.length) {
@@ -185,37 +187,36 @@ function MCQ() {
           Back
         </Link>
 
-        <div>
-        {/* Floating Instructions Button */}
-          <button className="instructions-button" onClick={() => setIsOpen(true)}>
-            ℹ️Instructions
-          </button>
-
-          {/* Overlay + Modal */}
-          {isOpen && (
-            <div className="overlay">
-              <div className="popup">
-                <h2>Game Instructions</h2>
-                <p style={{ textAlign: "left" }}>
-                  - Read the questions carefully. <br /><br />
-                  - Answer all 30 questions. <br /><br />
-                  - There is no timer, this is just for fun. <br /><br />
-                  - Click "Next" to proceed. <br /><br />
-                  - Let's see what you can do.
-                </p>
-
-                {/* Close Button */}
-                <button className="popup-close-button" onClick={() => setIsOpen(false)}>
-                  ✖
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-
         {!showResults ? (
           <div>
-            <h2>Question {currentQuestion + 1}</h2>
+            <div>
+            {/* Floating Instructions Button */}
+              <button className="instructions-button" onClick={() => setIsOpen(true)}>
+                ℹ️Instructions
+              </button>
+
+              {/* Overlay + Modal */}
+              {isOpen && (
+                <div className="overlay">
+                  <div className="popup">
+                    <h2>Game Instructions</h2>
+                    <p style={{ textAlign: "left" }}>
+                      - Read the questions carefully. <br /><br />
+                      - Answer all 30 questions. <br /><br />
+                      - There is no timer, this is just for fun. <br /><br />
+                      - Click "Next" to proceed. <br /><br />
+                      - Let's see what you can do.
+                    </p>
+
+                    {/* Close Button */}
+                    <button className="popup-close-button" onClick={() => setIsOpen(false)}>
+                      ✖
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            <h2 className='mcq-question'>Question {currentQuestion + 1}</h2>
             <div className="selection-content mcq">
               {questions[currentQuestion].question}
             </div>
@@ -244,7 +245,43 @@ function MCQ() {
         ) : (
           <div>
             <h2>Quiz Complete!</h2>
-            <p>Your score: {score} / {questions.length}</p>
+            <p style={{ fontWeight: 'bold' }}>Your score: {score} / {questions.length}</p>
+            <p style={{ fontSize: '0.875rem' }}>Check the top left!</p>
+            <div>
+            {/* Floating Instructions Button */}
+              <button className="instructions-button" onClick={() => setIsOpen(true)}>
+                View Analytics
+              </button>
+
+              {/* Overlay + Modal */}
+              {isOpen && (
+                <div className="overlay">
+                  <div className="popup">
+                    <h2>Questions</h2>
+                    {questions.map((q, index) => {
+                      const isCorrect = correctAnswers.includes(index);
+                      return (
+                        <p
+                          key={index}
+                          style={{
+                            textAlign: 'left',
+                            color: isCorrect ? 'lightgreen' : 'lightcoral',
+                            fontSize: '0.9em'
+                          }}
+                        >
+                          Question {index + 1}: {q.question}
+                        </p>
+                      );
+                    })}
+
+                    {/* Close Button */}
+                    <button className="popup-close-button" onClick={() => setIsOpen(false)}>
+                      ✖
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
             <Link to="/home">
               <button className="Start-button">Back to Home</button>
             </Link>
