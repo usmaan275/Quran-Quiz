@@ -597,9 +597,19 @@ function EnglishQuestions() {
   //   }
   // };
 
+  function sanitizeInput(input) {
+    // Remove any non-visible or control characters at the start
+    while (
+      input.length > 0 &&
+      !/^[\p{Script=Latin}\p{Script=Arabic}\p{Punctuation}\p{Zs}]/u.test(input[0])
+    ) {
+      input = input.slice(1);
+    }
+    return input;
+  }  
+
   const handleSearch = (input) => {
-    input.replace(/[\u200E\u200F\u202A-\u202E]/g, '');
-    setSearchText(input);
+    setSearchText(sanitizeInput(input));
   
     const isMobile = window.innerWidth <= 768;
     const suggestionsElement = document.getElementById(isMobile ? "suggestions2" : "suggestions");
@@ -700,7 +710,7 @@ function EnglishQuestions() {
     recognition.onresult = (event) => {
       let transcript = event.results[0][0].transcript;
       // Clean up any hidden directional characters
-      transcript = transcript.replace(/[\u200E\u200F\u202A-\u202E]/g, '');
+      transcript = sanitizeInput(transcript);
       setSearchText((prev) => {
         const updatedText = prev === '' ? prev + transcript : prev + " " + transcript;
         handleSearch(updatedText);
@@ -895,6 +905,7 @@ function EnglishQuestions() {
               value={searchText}
               placeholder="Search Ayat in English or Arabic"
               onChange={(e) => handleSearch(e.target.value)}
+              dir="auto"
             />
             <button 
               className={`english-mic-button ${isListening ? "active" : ""}`} 
