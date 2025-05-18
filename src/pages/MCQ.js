@@ -187,18 +187,18 @@ function MCQ() {
           Back
         </Link>
 
-        {!showResults ? (
-          <div>
-            <div>
-            {/* Floating Instructions Button */}
-              <button className="instructions-button" onClick={() => setIsOpen(true)}>
-                ℹ️Instructions
-              </button>
+        <div>
+        {/* Floating Instructions Button */}
+          <button className="instructions-button" onClick={() => setIsOpen(true)}>
+            {showResults ? '📈 Review' : 'ℹ️ Instructions'}
+          </button>
 
-              {/* Overlay + Modal */}
-              {isOpen && (
-                <div className="overlay">
-                  <div className="popup">
+          {/* Overlay + Modal */}
+          {isOpen && (
+            <div className="overlay">
+              <div className="popup">
+                {!showResults ? (
+                  <>
                     <h2>Game Instructions</h2>
                     <p style={{ textAlign: "left" }}>
                       - Read the questions carefully. <br /><br />
@@ -207,15 +207,40 @@ function MCQ() {
                       - Click "Next" to proceed. <br /><br />
                       - Let's see what you can do.
                     </p>
+                  </>
+                ) : (
+                  <>
+                    <h2>Questions</h2>
+                    {questions.map((q, index) => {
+                      const isCorrect = correctAnswers.includes(index);
+                      return (
+                        <p
+                          key={index}
+                          style={{
+                            textAlign: "left",
+                            color: isCorrect ? "lightgreen" : "lightcoral",
+                            fontSize: "0.9em",
+                          }}
+                        >
+                          Question {index + 1}: {q.question}
+                        </p>
+                      );
+                    })}
+                    <p>Can you do better next time?</p>
+                  </>
+                )}
 
-                    {/* Close Button */}
-                    <button className="popup-close-button" onClick={() => setIsOpen(false)}>
-                      ✖
-                    </button>
-                  </div>
-                </div>
-              )}
+                {/* Close Button */}
+                <button className="popup-close-button" onClick={() => setIsOpen(false)}>
+                  ✖
+                </button>
+              </div>
             </div>
+          )}
+        </div>
+
+        {!showResults ? (
+          <div>
             <h2 className='mcq-question'>Question {currentQuestion + 1}</h2>
             <div className="selection-content mcq">
               {questions[currentQuestion].question}
@@ -244,41 +269,6 @@ function MCQ() {
           </div>
         ) : (
           <div>
-            <div>
-            {/* Floating Instructions Button */}
-              <button className="instructions-button2" onClick={() => setIsOpen(true)}>
-              📈Review
-              </button>
-
-              {/* Overlay + Modal */}
-              {isOpen && (
-                <div className="overlay">
-                  <div className="popup">
-                    <h2>Questions</h2>
-                    {questions.map((q, index) => {
-                      const isCorrect = correctAnswers.includes(index);
-                      return (
-                        <p
-                          key={index}
-                          style={{
-                            textAlign: 'left',
-                            color: isCorrect ? 'lightgreen' : 'lightcoral',
-                            fontSize: '0.9em'
-                          }}
-                        >
-                          Question {index + 1}: {q.question}
-                        </p>
-                      );
-                    })}
-                    <p>Can you do better next time?</p>
-                    {/* Close Button */}
-                    <button className="popup-close-button2" onClick={() => setIsOpen(false)}>
-                      ✖
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
             <h2>Quiz Complete!</h2>
             <p style={{ fontWeight: 'bold' }}>Your score: {score} / {questions.length}</p>
             <p style={{ fontSize: '2vmin' }}>Check the top left!</p>

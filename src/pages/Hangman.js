@@ -155,7 +155,7 @@ function Hangman() {
         <div>
         {/* Floating Instructions Button */}
           <button className="instructions-button" onClick={() => setIsOpen(true)}>
-            ℹ️Instructions
+            ℹ️ Instructions
           </button>
 
           {/* Overlay + Modal */}
