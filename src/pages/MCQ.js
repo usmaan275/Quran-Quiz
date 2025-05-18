@@ -246,11 +246,11 @@ function MCQ() {
           <div>
             <h2>Quiz Complete!</h2>
             <p style={{ fontWeight: 'bold' }}>Your score: {score} / {questions.length}</p>
-            <p style={{ fontSize: '0.875rem' }}>Check the top left!</p>
+            <p style={{ fontSize: '2vmin' }}>Check the top left!</p>
             <div>
             {/* Floating Instructions Button */}
               <button className="instructions-button" onClick={() => setIsOpen(true)}>
-                View Analytics
+                Recap
               </button>
 
               {/* Overlay + Modal */}
@@ -278,6 +278,7 @@ function MCQ() {
                     <button className="popup-close-button" onClick={() => setIsOpen(false)}>
                       ✖
                     </button>
+                    <p>Can you do better next time?</p>
                   </div>
                 </div>
               )}
