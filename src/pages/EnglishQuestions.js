@@ -598,6 +598,7 @@ function EnglishQuestions() {
   // };
 
   const handleSearch = (input) => {
+    input.replace(/[\u200E\u200F\u202A-\u202E]/g, '');
     setSearchText(input);
   
     const isMobile = window.innerWidth <= 768;
@@ -697,7 +698,7 @@ function EnglishQuestions() {
       setIsListening(true);
     };
     recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
+      let transcript = event.results[0][0].transcript;
       // Clean up any hidden directional characters
       transcript = transcript.replace(/[\u200E\u200F\u202A-\u202E]/g, '');
       setSearchText((prev) => {

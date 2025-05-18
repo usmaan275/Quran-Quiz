@@ -109,6 +109,7 @@ body {
 /* Timer Display */
 .timer-display {
   position: absolute;  /* Keeps the timer at the top of the page */
+  width: 6vmax;
   top: calc(var(--vh) * 2);  /* 2% from the top of the viewport */
   right: 1vmax;  /* 2% from the left of the viewport */
   font-size: 1.2vmax;  /* Responsive font size based on viewport width */
