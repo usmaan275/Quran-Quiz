@@ -20,7 +20,6 @@ function Home() {
           alt="Arabic Calligraphy with Text"
           onLoad={() => setImageLoaded(true)} // Fade-in effect when the image loads
         />
-
         
         <div className="card-container">
           <Link className="card" to="/arabic-setup">Arabic Hifdh Test</Link>
