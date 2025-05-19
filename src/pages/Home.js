@@ -8,7 +8,7 @@ function Home() {
   const [isImageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    document.title = "Quran Quiz | Home"; // Set dynamic title
+    document.title = "Quran Quiz Homepage"; // Set dynamic title
   }, []);
 
   return (

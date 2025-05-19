@@ -732,19 +732,14 @@ function ArabicQuestions() {
   }; 
 
   function sanitizeInput(input) {
-    // Remove any non-visible or control characters at the start
-    while (
-      input.length > 0 &&
-      !/^[\p{Script=Latin}\p{Script=Arabic}\p{Punctuation}\p{Zs}]/u.test(input[0])
-    ) {
-      input = input.slice(1);
-    }
-    return input;
-  }  
+    // Remove any characters that are not Latin, Arabic, Punctuation, or Space (Zs)
+    return input.replace(/[^\p{Script=Arabic}\p{Punctuation}\p{Zs}]/gu, '');
+  }    
 
 const handleSearch = (input) => {
   input = transliterateToArabic(input);
-  setSearchText(sanitizeInput(input));
+  input = sanitizeInput(input);
+  setSearchText(input);
 
   const isMobile = window.innerWidth <= 768;
   const suggestionsElement = document.getElementById(isMobile ? "suggestions2" : "suggestions");
