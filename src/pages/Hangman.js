@@ -125,6 +125,43 @@ function Hangman() {
     }
   };  
 
+  const getStyledSurah = () => {
+    if (!gameOver) return blankedSurah;
+  
+    const chunks = [];
+    let currentColor = null;
+    let currentChunk = "";
+  
+    for (const char of selectedSurah) {
+      const isGuessed = showName || guessedLetters.includes(char);
+      const color = showName
+        ? "lightgreen"
+        : isGuessed
+        ? "#fff"
+        : "lightcoral";
+  
+      if (color !== currentColor) {
+        if (currentChunk) {
+          chunks.push(
+            `<span style="color: ${currentColor}">${currentChunk}</span>`
+          );
+        }
+        currentColor = color;
+        currentChunk = char;
+      } else {
+        currentChunk += char;
+      }
+    }
+  
+    if (currentChunk) {
+      chunks.push(
+        `<span style="color: ${currentColor}">${currentChunk}</span>`
+      );
+    }
+  
+    return chunks.join("");
+  };  
+
   useEffect(() => {
     document.title = "Quranic Hangman"; // Set dynamic title
     const surah = getRandomSurah();
@@ -237,23 +274,12 @@ function Hangman() {
                 : "lightgreen",
             zIndex: 10,
             whiteSpace: "nowrap",
-            transition: "3s"
+            transition: "2s"
           }}
-        >
-          {gameOver
-            ? selectedSurah.split("").map((char, i) => (
-                <span
-                  key={i}
-                  style={{
-                    color: showName ? "lightgreen" : guessedLetters.includes(char) ? "#fff" : "lightcoral",
-                    
-                  }}
-                >
-                  {char}
-                </span>
-              ))
-            : blankedSurah}
-        </div>
+          dangerouslySetInnerHTML={{
+            __html: gameOver ? getStyledSurah() : blankedSurah,
+          }}
+        ></div>
 
         <div className="keyboard-container">
         {/* Keyboard */}
