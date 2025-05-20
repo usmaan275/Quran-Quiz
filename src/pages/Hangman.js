@@ -237,7 +237,6 @@ function Hangman() {
                 : "lightgreen",
             zIndex: 10,
             whiteSpace: "nowrap",
-            transition: "3s"
           }}
         >
           {gameOver
