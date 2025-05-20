@@ -174,7 +174,7 @@ body {
   background: linear-gradient(175deg, #2e004f, #5c007a);
   padding: calc(var(--vh) * 4) 3vw;
   border-radius: 1vmax;
-  width: 50vw;
+  width: 60vw;
   max-height: calc(var(--vh) * 70);
   overflow-y: auto;
   text-align: center;
@@ -207,7 +207,7 @@ body {
   bottom: calc(var(--vh) * 2);
   left: 50%;                   /* Center horizontally */
   transform: translateX(-50%); /* Perfect centering */
-  padding: 1vmax 3vmax;
+  padding: 0.8vmax 3vmax;
   background: linear-gradient(175deg, #0b3d25, #1f6d43); /* Green gradient */
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.8); /* White outline with slight transparency */
@@ -1421,7 +1421,7 @@ button.english-clear-button:hover svg {
   .beam {
     top: calc(var(--vh) * 0);
     left: 12vw;
-    width: 40vw;
+    width: calc(38vw + calc(var(--vh) * 2));
   }
 
   .rope {

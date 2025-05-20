@@ -63,10 +63,16 @@ function EnglishSetup() {
               <div className="popup">
                 <h2>Game Instructions</h2>
                 <p style={{ textAlign: "left" }}>
-                  - Read the passage carefully. <br /><br />
-                  - Guess the next Ayah (marked in blue). <br /><br />
+                  - You will see part of an Ayah. <br /><br />
+                  - Remember to read it loudly and clearly. <br /><br />
+                  - Try to recall the next Ayah (marked in blue). <br /><br />
+                  - Either type or recite it into the search bar. <br /><br />
+                  - You can search in either English or Arabic. <br /><br />
+                  - Select the correct Ayah. <br /><br />
+                  - You have three attempts at guessing each Ayah. <br /><br />
+                  - Repeat this until passage completion. <br /><br />
                   - Answer all three questions. <br /><br />
-                  - Timer will keep running until completion. <br /><br />
+                  - The timer will keep running until completion. <br /><br />
                   - Click "Next" to proceed. <br /><br />
                   - Your score is based on time taken.
                 </p>

@@ -94,7 +94,7 @@ const questions = [
   },
   {
     question: "Who is referred to as 'Ar-Ruh al-Amin' (The Trustworthy Spirit)?",
-    options: ["Angel Jibreel", "Angel Mikaeel", "Angel Israfeel", "The Prophet ﷺ"],
+    options: ["The Prophet ﷺ", "Angel Jibreel", "Angel Mikaeel", "Angel Israfeel"],
     answer: "Angel Jibreel"
   },
   {

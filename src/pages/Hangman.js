@@ -15,7 +15,7 @@ function Hangman() {
     "تكوير", "انفطار", "مطففين", "انشقاق", "بروج", "طارق", "أعلى", "غاشية", "فجر", "بلد",
     "شمس", "ليل", "ضحى", "شرح", "تين", "علق", "قدر", "بينة", "زلزال", "عاديات",
     "قارعة", "تكاثر", "عصر", "همزة", "فيل", "قريش", "ماعون", "كوثر", "كافرون", "نصر",
-    "مسد", "إخلاص", "فلق", "ناس"
+    "لهب", "إخلاص", "فلق", "ناس"
   ];
 
   const [selectedSurah, setSelectedSurah] = useState("");
@@ -226,16 +226,33 @@ function Hangman() {
             left: "50%",
             direction: "rtl",
             transform: "translateX(-50%)",
-            fontSize: showName ? "3.5vmax": "2.7vmax",
+            fontSize: "3vmax",
             fontFamily: "Scheherazade New",
-            letterSpacing: showName ? "0" : "0.7vmax" ,
+            letterSpacing: gameOver ? "0" : "0.7vmax" ,
             fontWeight: "bold",
-            color: "#fff",
+            color: !gameOver 
+              ? "#fff" 
+              : wrongGuesses.length >= maxAttempts 
+                ? "lightcoral" 
+                : "lightgreen",
             zIndex: 10,
-            whiteSpace: "nowrap"
+            whiteSpace: "nowrap",
+            transition: "3s"
           }}
         >
-          {showName ? selectedSurah : blankedSurah}
+          {gameOver
+            ? selectedSurah.split("").map((char, i) => (
+                <span
+                  key={i}
+                  style={{
+                    color: showName ? "lightgreen" : guessedLetters.includes(char) ? "#fff" : "lightcoral",
+                    
+                  }}
+                >
+                  {char}
+                </span>
+              ))
+            : blankedSurah}
         </div>
 
         <div className="keyboard-container">
