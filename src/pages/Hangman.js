@@ -123,43 +123,6 @@ function Hangman() {
           setShowNotification(false);
         }, 50000); // 5000 ms = 5 seconds
     }
-  };
-
-  const getStyledSurah = () => {
-    if (!gameOver) return blankedSurah;
-  
-    const chunks = [];
-    let currentColor = null;
-    let currentChunk = "";
-  
-    for (const char of selectedSurah) {
-      const isGuessed = showName || guessedLetters.includes(char);
-      const color = showName
-        ? "lightgreen"
-        : isGuessed
-        ? "#fff"
-        : "lightcoral";
-  
-      if (color !== currentColor) {
-        if (currentChunk) {
-          chunks.push(
-            `<span style="color: ${currentColor}">${currentChunk}</span>`
-          );
-        }
-        currentColor = color;
-        currentChunk = char;
-      } else {
-        currentChunk += char;
-      }
-    }
-  
-    if (currentChunk) {
-      chunks.push(
-        `<span style="color: ${currentColor}">${currentChunk}</span>`
-      );
-    }
-  
-    return chunks.join("");
   };  
 
   useEffect(() => {
@@ -265,7 +228,7 @@ function Hangman() {
             transform: "translateX(-50%)",
             fontSize: "3vmax",
             fontFamily: "Scheherazade New",
-            letterSpacing: gameOver ? "0" : "0.7vmax" ,
+            letterSpacing: showName ? "0" : "0.7vmax" ,
             fontWeight: "bold",
             color: !gameOver 
               ? "#fff" 
@@ -276,11 +239,21 @@ function Hangman() {
             whiteSpace: "nowrap",
             transition: "3s"
           }}
-
-          dangerouslySetInnerHTML={{
-            __html: gameOver ? getStyledSurah() : blankedSurah,
-          }}
-        ></div>
+        >
+          {gameOver
+            ? selectedSurah.split("").map((char, i) => (
+                <span
+                  key={i}
+                  style={{
+                    color: showName ? "lightgreen" : guessedLetters.includes(char) ? "#fff" : "lightcoral",
+                    
+                  }}
+                >
+                  {char}
+                </span>
+              ))
+            : blankedSurah}
+        </div>
 
         <div className="keyboard-container">
         {/* Keyboard */}
