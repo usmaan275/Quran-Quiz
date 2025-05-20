@@ -881,7 +881,7 @@ button.english-clear-button:hover svg {
   bottom: calc(var(--vh) * 2);
   left: 50%;                   /* Center horizontally */
   transform: translateX(-50%); /* Perfect centering */
-  padding: calc(var(--vh) * 1.8) 2.6vw;
+  padding: calc(var(--vh) * 1.5) 2.6vw;
   background: linear-gradient(175deg, #0b3d25, #1f6d43); /* Green gradient */
   color: white;
   border: 0.2vmax solid rgba(255, 255, 255, 0.9); /* White outline with slight transparency */
@@ -947,14 +947,14 @@ button.english-clear-button:hover svg {
 }
 
 .selection-content.mcq {
-  margin-left: 1.75vw;
+  margin-left: 0vw;
   width: 90vw;
   height: calc(var(--vh) * 5);
   justify-content: center;
 }
 
 .juzz-label.mcq {
-  margin-left: 3.5vw;
+  margin-left: 2vw;
   width: 86vw;
 }
 
@@ -1360,6 +1360,10 @@ button.english-clear-button:hover svg {
 
   .Start-button {
     bottom: calc(var(--vh) * 4);
+  }
+
+  .next-button {
+    padding: calc(var(--vh) * 1.8) 5.2vw;
   }
 
   button.clear-button {
