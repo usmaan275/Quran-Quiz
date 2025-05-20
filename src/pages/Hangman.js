@@ -123,6 +123,43 @@ function Hangman() {
           setShowNotification(false);
         }, 50000); // 5000 ms = 5 seconds
     }
+  };
+
+  const getStyledSurah = () => {
+    if (!gameOver) return blankedSurah;
+  
+    const chunks = [];
+    let currentColor = null;
+    let currentChunk = "";
+  
+    for (const char of selectedSurah) {
+      const isGuessed = showName || guessedLetters.includes(char);
+      const color = showName
+        ? "lightgreen"
+        : isGuessed
+        ? "#fff"
+        : "lightcoral";
+  
+      if (color !== currentColor) {
+        if (currentChunk) {
+          chunks.push(
+            `<span style="color: ${currentColor}">${currentChunk}</span>`
+          );
+        }
+        currentColor = color;
+        currentChunk = char;
+      } else {
+        currentChunk += char;
+      }
+    }
+  
+    if (currentChunk) {
+      chunks.push(
+        `<span style="color: ${currentColor}">${currentChunk}</span>`
+      );
+    }
+  
+    return chunks.join("");
   };  
 
   useEffect(() => {
@@ -241,19 +278,7 @@ function Hangman() {
           }}
 
           dangerouslySetInnerHTML={{
-            __html: gameOver
-              ? selectedSurah
-                  .split("")
-                  .map((char) => {
-                    const color = showName
-                      ? "lightgreen"
-                      : guessedLetters.includes(char)
-                      ? "#fff"
-                      : "lightcoral";
-                    return `<span style="color: ${color}">${char}</span>`;
-                  })
-                  .join("")
-              : blankedSurah,
+            __html: gameOver ? getStyledSurah() : blankedSurah,
           }}
         ></div>
 
