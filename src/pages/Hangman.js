@@ -246,7 +246,7 @@ function Hangman() {
             transform: "translateX(-50%)",
             fontSize: showName ? "4vmax" : "3vmax",
             fontFamily: "Scheherazade New",
-            letterSpacing: !showName ? "0.7vmax" : undefined,
+            letterSpacing: !gameOver ? "0.7vmax" : undefined,
             fontWeight: "bold",
             color: !gameOver 
               ? "#fff" 
