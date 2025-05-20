@@ -38,7 +38,7 @@ function Hangman() {
 
   const getRandomSurah = () => {
     const randomIndex = Math.floor(Math.random() * surahNames.length);
-    return surahNames[22];
+    return surahNames[randomIndex];
   };
 
   const blankSurah = (surah) => {
@@ -244,7 +244,7 @@ function Hangman() {
             left: "50%",
             direction: "rtl",
             transform: "translateX(-50%)",
-            fontSize: "3vmax",
+            fontSize: showName ? "4vmax" : "3vmax",
             fontFamily: "Scheherazade New",
             letterSpacing: !showName ? "0.7vmax" : undefined,
             fontWeight: "bold",
