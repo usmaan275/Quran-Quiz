@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Hangman() {
   const surahNames = [
-    "فاتحة", "بقرة", "نساء", "مائدة", "أنعام", "أعراف", "أنفال", "توبة", "يونس",
+    "فاتحة", "بقرة", "آلعمران", "نساء", "مائدة", "أنعام", "أعراف", "أنفال", "توبة", "يونس",
     "هود", "يوسف", "رعد", "إبراهيم", "حجر", "نحل", "إسراء", "كهف", "مريم", "طه",
     "أنبياء", "حج", "مؤمنون", "نور", "فرقان", "شعراء", "نمل", "قصص", "عنكبوت", "روم",
     "لقمان", "سجدة", "أحزاب", "سبإ", "فاطر", "يس", "صافات", "ص", "زمر", "غافر",
@@ -85,7 +85,7 @@ function Hangman() {
   
         if (updatedWrong.length >= maxAttempts) {
           setGameOver(true);
-          setNotification(`Game over! The Surah was: ${selectedSurah}`);
+          setNotification(`Game over! The Surah was: ${selectedSurah.replace("آل", "آل ")}`);
           setShowNotification(true);
   
           if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -130,7 +130,7 @@ function Hangman() {
   
     if (showName) {
       // Show full, connected Arabic with lightgreen
-      return `<span style="color: lightgreen">${selectedSurah}</span>`;
+      return `<span style="color: lightgreen">${selectedSurah.replace("آل", "آل ")}</span>`;
     } else {
       // User lost — break into individual styled characters
       return selectedSurah
