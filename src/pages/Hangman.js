@@ -38,7 +38,7 @@ function Hangman() {
 
   const getRandomSurah = () => {
     const randomIndex = Math.floor(Math.random() * surahNames.length);
-    return surahNames[22];
+    return surahNames[randomIndex];
   };
 
   const blankSurah = (surah) => {
@@ -255,7 +255,6 @@ function Hangman() {
                 : "lightgreen",
             zIndex: 10,
             whiteSpace: "nowrap",
-            transition: "0.3s"
           }}
           dangerouslySetInnerHTML={{
             __html: gameOver ? getStyledSurah() : blankedSurah,
