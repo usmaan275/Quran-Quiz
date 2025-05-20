@@ -237,22 +237,25 @@ function Hangman() {
                 : "lightgreen",
             zIndex: 10,
             whiteSpace: "nowrap",
+            transition: "3s"
           }}
-        >
-          {gameOver
-            ? selectedSurah.split("").map((char, i) => (
-                <span
-                  key={i}
-                  style={{
-                    color: showName ? "lightgreen" : guessedLetters.includes(char) ? "#fff" : "lightcoral",
-                    
-                  }}
-                >
-                  {char}
-                </span>
-              ))
-            : blankedSurah}
-        </div>
+
+          dangerouslySetInnerHTML={{
+            __html: gameOver
+              ? selectedSurah
+                  .split("")
+                  .map((char) => {
+                    const color = showName
+                      ? "lightgreen"
+                      : guessedLetters.includes(char)
+                      ? "#fff"
+                      : "lightcoral";
+                    return `<span style="color: ${color}">${char}</span>`;
+                  })
+                  .join("")
+              : blankedSurah,
+          }}
+        ></div>
 
         <div className="keyboard-container">
         {/* Keyboard */}
