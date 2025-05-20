@@ -128,38 +128,19 @@ function Hangman() {
   const getStyledSurah = () => {
     if (!gameOver) return blankedSurah;
   
-    const chunks = [];
-    let currentColor = null;
-    let currentChunk = "";
-  
-    for (const char of selectedSurah) {
-      const isGuessed = showName || guessedLetters.includes(char);
-      const color = showName
-        ? "lightgreen"
-        : isGuessed
-        ? "#fff"
-        : "lightcoral";
-  
-      if (color !== currentColor) {
-        if (currentChunk) {
-          chunks.push(
-            `<span style="color: ${currentColor}">${currentChunk}</span>`
-          );
-        }
-        currentColor = color;
-        currentChunk = char;
-      } else {
-        currentChunk += char;
-      }
+    if (showName) {
+      // Show full, connected Arabic with lightgreen
+      return `<span style="color: lightgreen">${selectedSurah}</span>`;
+    } else {
+      // User lost — break into individual styled characters
+      return selectedSurah
+        .split("")
+        .map((char) => {
+          const color = guessedLetters.includes(char) ? "#fff" : "lightcoral";
+          return `<span style="color: ${color}">${char}</span>`;
+        })
+        .join(""); // broken shaping is intentional
     }
-  
-    if (currentChunk) {
-      chunks.push(
-        `<span style="color: ${currentColor}">${currentChunk}</span>`
-      );
-    }
-  
-    return chunks.join("");
   };  
 
   useEffect(() => {
