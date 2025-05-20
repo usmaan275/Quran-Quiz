@@ -38,7 +38,7 @@ function Hangman() {
 
   const getRandomSurah = () => {
     const randomIndex = Math.floor(Math.random() * surahNames.length);
-    return surahNames[randomIndex];
+    return surahNames[22];
   };
 
   const blankSurah = (surah) => {
@@ -139,7 +139,7 @@ function Hangman() {
           const color = guessedLetters.includes(char) ? "#fff" : "lightcoral";
           return `<span style="color: ${color}">${char}</span>`;
         })
-        .join(""); // broken shaping is intentional
+        .join(" "); // broken shaping is intentional
     }
   };  
 
@@ -255,6 +255,7 @@ function Hangman() {
                 : "lightgreen",
             zIndex: 10,
             whiteSpace: "nowrap",
+            transition: "0.3s"
           }}
           dangerouslySetInnerHTML={{
             __html: gameOver ? getStyledSurah() : blankedSurah,
