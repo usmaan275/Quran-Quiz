@@ -240,11 +240,12 @@ function Hangman() {
       <div className="type-container">
         <div className='blanked'
           style={{
+            WebkitFontSmoothing: "antialiased",
             position: "absolute",
             left: "50%",
             direction: "rtl",
             transform: "translateX(-50%)",
-            fontSize: showName ? "3.5vmax" : "2.7vmax",
+            fontSize: "3vmax",
             fontFamily: "Scheherazade New",
             letterSpacing: showName ? "0" : "0.7vmax" ,
             fontWeight: "bold",
