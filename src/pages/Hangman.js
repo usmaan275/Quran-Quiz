@@ -240,7 +240,6 @@ function Hangman() {
       <div className="type-container">
         <div className='blanked'
           style={{
-            WebkitFontSmoothing: "antialiased",
             position: "absolute",
             left: "50%",
             direction: "rtl",
@@ -256,7 +255,6 @@ function Hangman() {
                 : "lightgreen",
             zIndex: 10,
             whiteSpace: "nowrap",
-            transition: "2s"
           }}
           dangerouslySetInnerHTML={{
             __html: gameOver ? getStyledSurah() : blankedSurah,
