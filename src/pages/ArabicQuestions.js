@@ -1015,7 +1015,7 @@ const handleSearch = (input) => {
     <div>
       <header className="App-header">
         <Link to="/home" className="Back-button">
-          Home
+          Exit
         </Link>
 
         {/* Timer Display */}
