@@ -207,7 +207,7 @@ body {
   bottom: calc(var(--vh) * 2);
   left: 50%;                   /* Center horizontally */
   transform: translateX(-50%); /* Perfect centering */
-  padding: 0.8vmax 3vmax;
+  padding: 0.7vmax 3vmax;
   background: linear-gradient(175deg, #0b3d25, #1f6d43); /* Green gradient */
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.8); /* White outline with slight transparency */
@@ -478,7 +478,7 @@ button.clear-button {
 button.english-clear-button {
   position: absolute;
   right: 1.5vw; /* Position the button on the left side for RTL layout */
-  top: calc(var(--vh) * 5); /* Vertically center the button */
+  top: calc(var(--vh) * 5.8); /* Vertically center the button */
   width: calc(var(--vh) * 4);
   height: calc(var(--vh) * 4);
   transform: translateY(-50%); /* Adjust to make it truly centered */
@@ -590,7 +590,7 @@ button.english-clear-button:hover svg {
 .english-mic-button {
   position: absolute;
   right: 3.2vw; /* Position the button on the left side for RTL layout */
-  top: calc(var(--vh) * 2.2); /* Vertically center the button */
+  top: calc(var(--vh) * 3.2); /* Vertically center the button */
   width: calc(var(--vh) * 5.5);
   height: calc(var(--vh) * 5.5);
   background: transparent;
@@ -1375,7 +1375,7 @@ button.english-clear-button:hover svg {
 
   button.english-clear-button {
     right: 6vw; /* Position the button on the left side for RTL layout */
-    top: calc(var(--vh) * 4.7); /* Vertically center the button */
+    top: calc(var(--vh) * 5.4); /* Vertically center the button */
     width: calc(var(--vh) * 4);
     height: calc(var(--vh) * 4);
   }
@@ -1390,7 +1390,7 @@ button.english-clear-button:hover svg {
 
   .english-mic-button {
     right: 12vw; /* Position the button on the left side for RTL layout */
-    top: calc(var(--vh) * 2.5); /* Vertically center the button */
+    top: calc(var(--vh) * 3.1); /* Vertically center the button */
     width: calc(var(--vh) * 4.7);
     height: calc(var(--vh) * 4.7);
   }
