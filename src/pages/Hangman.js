@@ -143,6 +143,18 @@ function Hangman() {
     }
   };  
 
+  const playAgain = () => {
+    setWrongGuesses([]);
+    setGuessedLetters([]);
+    setShowNotification(false);
+    setShowName(false);
+    setGameOver(false);
+
+    const surah = getRandomSurah();
+    setSelectedSurah(surah);
+    blankSurah(surah);
+  }
+
   useEffect(() => {
     document.title = "Quranic Hangman"; // Set dynamic title
     const surah = getRandomSurah();
@@ -322,9 +334,7 @@ function Hangman() {
         </div>
       </div>
       {gameOver && (
-          <Link to="/home">
-            <button className="Start-button">Back to Home</button>
-          </Link>
+          <button className="Start-button" onClick={() => playAgain()}>Play Again</button>
         )}
     </div>
   );

@@ -91,7 +91,7 @@ body {
 .Back-button {
   position: absolute;
   top: calc(var(--vh) * 2);
-  width: 3vw;
+  width: 3vmax;
   left: 1vmax;
   padding: 1vmin 1.5vmin;
   background-color: #b22222;
@@ -208,7 +208,7 @@ body {
   bottom: calc(var(--vh) * 2);
   left: 50%;                   /* Center horizontally */
   transform: translateX(-50%); /* Perfect centering */
-  padding: 0.7vmax 3vmax;
+  padding: 0.8vmax 3vmax;
   background: linear-gradient(175deg, #0b3d25, #1f6d43); /* Green gradient */
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.8); /* White outline with slight transparency */
